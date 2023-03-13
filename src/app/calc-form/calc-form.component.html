@@ -22,4 +22,5 @@
             #scale="ngModel" />
         <div [hidden]="scale.valid || scale.pristine" class="alert alert-danger">Number of breads is required</div>
     </div>
+    <app-total-ingredients [doughWeight]="model.doughWeight" [scale]="model.scale"></app-total-ingredients>
 </form>
