@@ -1,1 +1,25 @@
-<p>calc-form works!</p>
+<h1>Sourdough bread recipe</h1>
+
+<p></p>
+<form (ngSubmit)="onSubmit()" #sourbreadForm="ngForm">
+    <p>
+        {{ model | json }}</p>
+    <div class="form-group">
+        <label for="doughWeight">Dough weight (g)</label>
+        <input type="text" class="form-control" id="doughWeight" required [(ngModel)]="model.doughWeight" name="doughWeight"
+            #doughWeight="ngModel" />
+        <div [hidden]="doughWeight.valid || doughWeight.pristine" class="alert alert-danger">Dough weight is required</div>
+    </div>
+    <div class="form-group">
+        <label for="levain">Levain (%)</label>
+        <input type="text" class="form-control" id="levain" required [(ngModel)]="model.levain" name="levain"
+            #levain="ngModel" />
+        <div [hidden]="levain.valid || levain.pristine" class="alert alert-danger">Levain percentage is required</div>
+    </div>
+    <div class="form-group">
+        <label for="scale">Amount of breads</label>
+        <input type="text" class="form-control" id="scale" required [(ngModel)]="model.scale" name="scale"
+            #scale="ngModel" />
+        <div [hidden]="scale.valid || scale.pristine" class="alert alert-danger">Number of breads is required</div>
+    </div>
+</form>
