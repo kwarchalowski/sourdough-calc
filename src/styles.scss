@@ -19,7 +19,7 @@ body {
     margin: auto;
 
     tr {
-        
+
         td.bold {
             font-weight: bold;
         }
@@ -29,7 +29,21 @@ body {
             margin: auto;
             display: block;
             text-align: center;
+
+            &[type='number']:not(:read-only) {
+                background-color: #fffdf9;
+            }
+
+            &[type='number']:read-only {
+                pointer-events: none;
+                background: repeating-linear-gradient(45deg,
+                        #f8faff41,
+                        #f8faff41 6px,
+                        #e6e6e663 6px,
+                        #e6e6e663 12px);
+            }
         }
+
 
         text-align: center;
         align-items: center;

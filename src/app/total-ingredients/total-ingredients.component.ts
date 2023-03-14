@@ -30,19 +30,11 @@ export class TotalIngredientsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    //this.recalculateWeights();
+    this.recalculateWeights();
   }
 
 
   recalculateWeights(): void {
-
-
-
-    // TODO: think about map.reduce
-    // this.ingredientsPairs.forEach(ingredient => console.log(ingredient.weight));
-
-    // this.ingredientsPairs.map(ingredient => ingredient.weight = parseFloat(((this.doughWeight / (this.totalBakers) * (ingredient.bakers)) * this.scale).toFixed(1)));
-    // console.log('after: ' + this.ingredientsPairs);
 
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
 
@@ -90,7 +82,7 @@ export class TotalIngredientsComponent implements OnChanges {
       }
     ]
 
-    this.totalWeight = ingredientsPairs.reduce((acc, ingredient) => acc + ingredient.weight, 0);
+    this.totalWeight = Math.round(ingredientsPairs.reduce((acc, ingredient) => acc + ingredient.weight, 0));
   };
 
 }

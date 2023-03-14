@@ -18,6 +18,12 @@ form {
         text-align: center;
         vertical-align: middle;
     }
+
+    button {
+        padding: 16px;
+        font-size: large;
+        font-weight: bold;
+    }
 }
 
 .table-hover>tbody>tr.no-hover:hover {
