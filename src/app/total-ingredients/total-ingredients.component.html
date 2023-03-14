@@ -15,7 +15,7 @@
                 <td>
                     <input type="number" min="0" max="100" readonly class="form-control" id="strongWhiteFlour" required
                         [(ngModel)]="model.strongWhiteFlourBakers" name="strongWhiteFlour"
-                        #strongWhiteFlour="ngModel" />
+                        #strongWhiteFlour="ngModel"/>
                 </td>
                 <td class="middle-center">{{ strongWhiteFlourWeight }}</td>
             </tr>
@@ -23,7 +23,7 @@
                 <th scope="row" class="middle-right">Flour type 2</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="flourType2" required
-                        [(ngModel)]="model.flourType2Bakers" name="flourType2" #flourType2="ngModel" />
+                        [(ngModel)]="model.flourType2Bakers" name="flourType2" #flourType2="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ flourType2Weight }}</td>
             </tr>
@@ -31,7 +31,7 @@
                 <th scope="row" class="middle-right">Flour type 3</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="flourType3" required
-                        [(ngModel)]="model.flourType3Bakers" name="flourType3" #flourType3="ngModel" />
+                        [(ngModel)]="model.flourType3Bakers" name="flourType3" #flourType3="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ flourType3Weight }}</td>
             </tr>
@@ -39,7 +39,7 @@
                 <th scope="row" class="middle-right">Water</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="water" required
-                        [(ngModel)]="model.waterBakers" name="water" #water="ngModel" />
+                        [(ngModel)]="model.waterBakers" name="water" #water="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ waterWeight }}</td>
             </tr>
@@ -47,7 +47,7 @@
                 <th scope="row" class="middle-right">Salt</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="salt" required
-                        [(ngModel)]="model.saltBakers" name="salt" #salt="ngModel" />
+                        [(ngModel)]="model.saltBakers" name="salt" #salt="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ saltWeight }}</td>
             </tr>
@@ -55,7 +55,7 @@
                 <th scope="row" class="middle-right">Inclusion 1</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control input-sm" id="inclusion1" required
-                        [(ngModel)]="model.inclusion1Bakers" name="inclusion1" #inclusion1="ngModel" />
+                        [(ngModel)]="model.inclusion1Bakers" name="inclusion1" #inclusion1="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ inclusion1Weight }}</td>
             </tr>
@@ -63,7 +63,7 @@
                 <th scope="row" class="middle-right">Inclusion 2</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="inclusion2" required
-                        [(ngModel)]="model.inclusion2Bakers" name="inclusion2" #inclusion2="ngModel" />
+                        [(ngModel)]="model.inclusion2Bakers" name="inclusion2" #inclusion2="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ inclusion2Weight }}</td>
             </tr>
@@ -71,7 +71,7 @@
                 <th scope="row" class="middle-right">Inclusion 3</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="inclusion3" required
-                        [(ngModel)]="model.inclusion3Bakers" name="inclusion3" #inclusion3="ngModel" />
+                        [(ngModel)]="model.inclusion3Bakers" name="inclusion3" #inclusion3="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
                 <td class="middle-center">{{ inclusion3Weight }}</td>
             </tr>
@@ -80,11 +80,11 @@
                 <td></td>
                 <td class="bold middle-center">{{ totalWeight }} (g)</td>
             </tr>
-            <tr class="no-hover">
+            <!-- <tr class="no-hover">
                 <th scope="row" class="middle-right"></th>
                 <td></td>
                 <td> <button type="button" class="btn btn-info" (click)="recalculateWeights()">Bake</button></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 </form>
