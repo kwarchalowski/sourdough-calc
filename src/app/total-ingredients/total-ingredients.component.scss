@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    width: 42rem;
+    height: auto;
+    border: 2px dashed rgba(0, 0, 0, 0.150);
+    border-top: 1px solid rgba(0, 0, 0, 0.275);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.275);
+    border-radius: 8px;
+    flex-shrink: 2;
+    background-color: #fffbf2de;
+
+    .middle-right {
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .middle-center {
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+.table-hover>tbody>tr.no-hover:hover {
+    background-color: inherit;
+}

@@ -1,22 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
-#weightsTable tr {
+body {
+    background-color: #fffdf9;
+    color: rgb(39, 39, 39);
+    font-family: 'Nunito Sans', sans-serif;
+}
 
-    td.bold {
-        font-weight: bold;
-    }
+#weightsTable {
 
-    input {
-        width: 80%;
-        padding: 0 10%;
-        margin: auto;
-        display: block;
+    // border: 1px solid black;
+    // border-radius: 50%;
+    // padding: 16px;
+    // margin: 8px;
+
+    tr {
+
+
+        td.bold {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            margin: auto;
+            display: block;
+            text-align: center;
+        }
+
         text-align: center;
+        align-items: center;
     }
-
-    text-align: center;
-    align-items: center;
 }
 
 //* remove number input arrows
@@ -26,8 +41,8 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 //* firefox
-input[type=number]{
+input[type=number] {
     -moz-appearance: textfield;
 }
-

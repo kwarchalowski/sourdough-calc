@@ -1,184 +1,90 @@
 <form>
-    <!-- <div class="bakers"> -->
-        <!-- <p>
-            {{ model | json }}</p> -->
-
-
-        <!--  (ngModelChange)="recalculateWeights()"  -->
-        <!-- <div class="form-group">
-            <label for="strongWhiteFlour">Strong white flour (%)</label>
-            <input type="number" min="0" max="100" readonly class="form-control" id="strongWhiteFlour" required
-                [(ngModel)]="model.strongWhiteFlourBakers" name="strongWhiteFlour" #strongWhiteFlour="ngModel" />
-            <div [hidden]="strongWhiteFlour.valid || strongWhiteFlour.pristine" class="alert alert-danger">Dough weight
-                is required</div>
-        </div>
-        <div class="form-group">
-            <label for="flourType2">Flour type 2 (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="flourType2" required
-                [(ngModel)]="model.flourType2Bakers" name="flourType2" #flourType2="ngModel" />
-            <div [hidden]="flourType2.valid || flourType2.pristine" class="alert alert-danger">Flour type 2 is required
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="flourType3">Flour type 3 (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="flourType3" required
-                [(ngModel)]="model.flourType3Bakers" name="flourType3" #flourType3="ngModel" />
-            <div [hidden]="flourType3.valid || flourType3.pristine" class="alert alert-danger">Flour type 3 is required
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="water">Water (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="water" required
-                [(ngModel)]="model.waterBakers" name="water" #water="ngModel" />
-            <div [hidden]="water.valid || water.pristine" class="alert alert-danger">Water</div>
-        </div>
-        <div class="form-group">
-            <label for="salt">Salt (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="salt" required
-                [(ngModel)]="model.saltBakers" name="salt" #salt="ngModel" />
-            <div [hidden]="salt.valid || salt.pristine" class="alert alert-danger">Salt</div>
-        </div>
-        <div class="form-group">
-            <label for="inclusion1">Inclusion 1 (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="inclusion1" required
-                [(ngModel)]="model.inclusion1Bakers" name="inclusion1" #inclusion1="ngModel" />
-            <div [hidden]="inclusion1.valid || inclusion1.pristine" class="alert alert-danger">Inclusion 1</div>
-        </div>
-        <div class="form-group">
-            <label for="inclusion2">Inclusion 2 (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="inclusion2" required
-                [(ngModel)]="model.inclusion2Bakers" name="inclusion2" #inclusion2="ngModel" />
-            <div [hidden]="inclusion2.valid || inclusion2.pristine" class="alert alert-danger">Inclusion 2</div>
-        </div>
-        <div class="form-group">
-            <label for="inclusion3">Inclusion 3 (%)</label>
-            <input type="number" min="0" max="100" class="form-control" id="inclusion3" required
-                [(ngModel)]="model.inclusion3Bakers" name="inclusion3" #inclusion3="ngModel" />
-            <div [hidden]="inclusion3.valid || inclusion3.pristine" class="alert alert-danger">Inclusion 3</div>
-        </div>
-    </div> -->
-    <!-- <div class="weight">
-        <hr>
-        <h3>Weight</h3>
-        <div class="form-group">
-            <label for="strongWhiteFlourWeight">Strong white flour (g)</label>
-            <p id="strongWhiteFlourWeight">{{ strongWhiteFlourWeight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="flourType2Weight">Flour type 2 (g)</label>
-            <p id="flourType2Weight">{{ flourType2Weight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="flourType3Weight">Flour type 3 (g)</label>
-            <p id="flourType3Weight">{{ flourType3Weight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="water">Water (g)</label>
-            <p id="waterWeight">{{ waterWeight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="salt">Salt (g)</label>
-            <p id="saltWeight">{{ saltWeight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="inclusion1">Inclusion 1 (g)</label>
-            <p id="inclusion1Weight">{{ inclusion1Weight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="inclusion2">Inclusion 2 (g)</label>
-            <p id="inclusion2Weight">{{ inclusion2Weight }}</p>
-        </div>
-        <div class="form-group">
-            <label for="inclusion3">Inclusion 3 (g)</label>
-            <p id="inclusion3Weight">{{ inclusion3Weight }}</p>
-        </div>
-    </div> -->
-
-    <table id="weightsTable" class="table table-sd table-hover " style="width: 600px;">
+    <table id="weightsTable" class="table table-sd table-hover table-dark">
         <thead>
             <tr>
-                <th scope="col" class="col-md-3 text-left"><h2>Total ingredients</h2></th>
+                <th scope="col" class="col-md-3 text-left">
+                    <h3>Total ingredients</h3>
+                </th>
                 <th scope="col" class="col-md-3 text-center">Baker's (%)</th>
                 <th scope="col" class="col-md-1 text-center">Weight (g)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row" class="text-right">Strong white flour</th>
+                <th scope="row" class="middle-right">Strong white flour</th>
                 <td>
                     <input type="number" min="0" max="100" readonly class="form-control" id="strongWhiteFlour" required
                         [(ngModel)]="model.strongWhiteFlourBakers" name="strongWhiteFlour"
                         #strongWhiteFlour="ngModel" />
                 </td>
-                <td>{{ strongWhiteFlourWeight }}</td>
+                <td class="middle-center">{{ strongWhiteFlourWeight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Flour type 2</th>
+                <th scope="row" class="middle-right">Flour type 2</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="flourType2" required
                         [(ngModel)]="model.flourType2Bakers" name="flourType2" #flourType2="ngModel" />
-                    </td>
-                <td>{{ flourType2Weight }}</td>
+                </td>
+                <td class="middle-center">{{ flourType2Weight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Flour type 3</th>
+                <th scope="row" class="middle-right">Flour type 3</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="flourType3" required
-                    [(ngModel)]="model.flourType3Bakers" name="flourType3" #flourType3="ngModel" />
+                        [(ngModel)]="model.flourType3Bakers" name="flourType3" #flourType3="ngModel" />
                 </td>
-                <td>{{ flourType3Weight }}</td>
+                <td class="middle-center">{{ flourType3Weight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Water</th>
+                <th scope="row" class="middle-right">Water</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="water" required
-                [(ngModel)]="model.waterBakers" name="water" #water="ngModel" />
+                        [(ngModel)]="model.waterBakers" name="water" #water="ngModel" />
                 </td>
-                <td>{{ waterWeight }}</td>
+                <td class="middle-center">{{ waterWeight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Salt</th>
+                <th scope="row" class="middle-right">Salt</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="salt" required
-                    [(ngModel)]="model.saltBakers" name="salt" #salt="ngModel" />
+                        [(ngModel)]="model.saltBakers" name="salt" #salt="ngModel" />
                 </td>
-                <td>{{ saltWeight }}</td>
+                <td class="middle-center">{{ saltWeight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Inclusion 1</th>
+                <th scope="row" class="middle-right">Inclusion 1</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control input-sm" id="inclusion1" required
-                    [(ngModel)]="model.inclusion1Bakers" name="inclusion1" #inclusion1="ngModel" />
+                        [(ngModel)]="model.inclusion1Bakers" name="inclusion1" #inclusion1="ngModel" />
                 </td>
-                <td>{{ inclusion1Weight }}</td>
+                <td class="middle-center">{{ inclusion1Weight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Inclusion 2</th>
+                <th scope="row" class="middle-right">Inclusion 2</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="inclusion2" required
-                    [(ngModel)]="model.inclusion2Bakers" name="inclusion2" #inclusion2="ngModel" />
+                        [(ngModel)]="model.inclusion2Bakers" name="inclusion2" #inclusion2="ngModel" />
                 </td>
-                <td>{{ inclusion2Weight }}</td>
+                <td class="middle-center">{{ inclusion2Weight }}</td>
             </tr>
             <tr>
-                <th scope="row" class="text-right">Inclusion 3</th>
+                <th scope="row" class="middle-right">Inclusion 3</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="inclusion3" required
-                    [(ngModel)]="model.inclusion3Bakers" name="inclusion3" #inclusion3="ngModel" />
+                        [(ngModel)]="model.inclusion3Bakers" name="inclusion3" #inclusion3="ngModel" />
                 </td>
-                <td>{{ inclusion3Weight }}</td>
+                <td class="middle-center">{{ inclusion3Weight }}</td>
             </tr>
-            <tr>
-                <th scope="row" class="text-right"></th>
+            <tr class="no-hover">
+                <th scope="row" class="middle-right"></th>
                 <td></td>
-                <td class="bold">{{ totalWeight }} (g)</td>
+                <td class="bold middle-center">{{ totalWeight }} (g)</td>
             </tr>
-            <tr>
-                <th scope="row" class="text-right"></th>
+            <tr class="no-hover">
+                <th scope="row" class="middle-right"></th>
                 <td></td>
-                <td>    <button type="button" class="btn btn-success" (click)="recalculateWeights()">Bake</button></td>
+                <td> <button type="button" class="btn btn-success" (click)="recalculateWeights()">Bake</button></td>
             </tr>
         </tbody>
     </table>
-
 </form>
