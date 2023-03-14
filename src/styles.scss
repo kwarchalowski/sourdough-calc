@@ -1,2 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+#weightsTable tr {
+
+    td.bold {
+        font-weight: bold;
+    }
+
+    input {
+        width: 80%;
+        padding: 0 10%;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+
+    text-align: center;
+    align-items: center;
+}
+
+//* remove number input arrows
+//* chrome, safari, edge, opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+//* firefox
+input[type=number]{
+    -moz-appearance: textfield;
+}
+

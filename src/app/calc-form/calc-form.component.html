@@ -2,8 +2,8 @@
 
 <p></p>
 <form (ngSubmit)="onSubmit()" #sourbreadForm="ngForm">
-    <p>
-        {{ model | json }}</p>
+    <!-- <p>
+        {{ model | json }}</p> -->
     <div class="form-group">
         <label for="doughWeight">Dough weight (g)</label>
         <input type="text" class="form-control" id="doughWeight" required [(ngModel)]="model.doughWeight" name="doughWeight"
