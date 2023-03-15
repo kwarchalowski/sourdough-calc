@@ -1,0 +1,84 @@
+<form>
+    <table id="fermentsTable" class="table table-sd table-hover">
+        <thead>
+            <h3>Main dough</h3>
+            <tr>
+                <th scope="col" class="col-md-3 text-left">
+                </th>
+                <th scope="col" class="col-md-3 text-center">Baker's (%)</th>
+                <th scope="col" class="col-md-1 text-center">Weight (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="middle-right">Strong white flour</th>
+                <td>
+                    {{model.strongWhiteFlourBakers}}
+                </td>
+                <td class="middle-center">{{ strongWhiteFlourWeight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Flour type 2</th>
+                <td>
+                    {{model.flourType2Bakers}}
+                </td>
+                <td class="middle-center">{{ flourType2Weight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Flour type 3</th>
+                <td>
+                    {{model.flourType3Bakers}}
+                </td>
+                <td class="middle-center">{{ flourType3Weight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Water</th>
+                <td>
+                    {{model.waterBakers}}
+                </td>
+                <td class="middle-center">{{ waterWeight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Salt</th>
+                <td>
+                    {{model.saltBakers}}
+                </td>
+                <td class="middle-center">{{ saltWeight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Levain</th>
+                <td>
+                    {{model.levain}}
+                </td>
+                <td class="middle-center">{{ levainWeight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Inclusion 1</th>
+                <td>
+                    {{model.inclusion1Bakers}}
+                </td>
+                <td class="middle-center">{{ inclusion1Weight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Inclusion 2</th>
+                <td>
+                    {{model.inclusion2Bakers}}
+                </td>
+                <td class="middle-center">{{ inclusion2Weight }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="middle-right">Inclusion 3</th>
+                <td>
+                    {{model.inclusion3Bakers}}
+                </td>
+                <td class="middle-center">{{ inclusion3Weight }}</td>
+            </tr>
+            <tr class="no-hover">
+                <th scope="row" class="middle-right"></th>
+                <td></td>
+                <td class="bold middle-center">total weight</td>
+            </tr>
+        </tbody>
+    </table>
+
+</form>

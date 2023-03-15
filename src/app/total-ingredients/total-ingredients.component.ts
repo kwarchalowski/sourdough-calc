@@ -18,14 +18,14 @@ export class TotalIngredientsComponent implements OnChanges {
 
   //* init
   strongWhiteFlourWeight: number = this.breadComponents.getStrongWhiteFlourWeight();
-  waterWeight: number = 0;
-  flourType2Weight: number = 0;
-  flourType3Weight: number = 0;
-  saltWeight: number = 0;
-  inclusion1Weight: number = 0;
-  inclusion2Weight: number = 0;
-  inclusion3Weight: number = 0;
-  totalWeight: number = 0;
+  waterWeight: number = this.breadComponents.getWaterWeight();
+  flourType2Weight: number = this.breadComponents.getFlourType2Weight();
+  flourType3Weight: number = this.breadComponents.getFlourType3Weight();
+  saltWeight: number = this.breadComponents.getSaltWeight();
+  inclusion1Weight: number = this.breadComponents.getInclusion1Weight();
+  inclusion2Weight: number = this.breadComponents.getInclusion2Weight();
+  inclusion3Weight: number = this.breadComponents.getInclusion3Weight();
+  totalWeight: number = this.breadComponents.getTotalIngredientsWeight();
 
   ngOnInit() {
     this.recalculateWeights();

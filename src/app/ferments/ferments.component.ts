@@ -36,6 +36,7 @@ export class FermentsComponent {
 
 
   recalculateWeights(): void {
+    
     this.levainWeight = this.breadComponents.getLevainWeight();
   };
 

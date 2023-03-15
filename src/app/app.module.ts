@@ -9,13 +9,15 @@ import { CalcFormComponent } from './calc-form/calc-form.component';
 import { TotalIngredientsComponent } from './total-ingredients/total-ingredients.component';
 import { FermentsComponent } from './ferments/ferments.component';
 import { BreadComponentsService } from './bread-components.service';
+import { MainDoughComponent } from './main-dough/main-dough.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalcFormComponent,
     TotalIngredientsComponent,
-    FermentsComponent
+    FermentsComponent,
+    MainDoughComponent
   ],
   imports: [
     BrowserModule,

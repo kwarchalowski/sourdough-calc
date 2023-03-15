@@ -1,7 +1,8 @@
-table {
+form {
+    // height: 100%;
+    // left: 0;
     display: flex;
-    width: 42rem;
-    height: auto;
+    width: 36rem;
     border: 1px dashed rgba(0, 0, 0, 0.150);
     border-top: 1px solid rgba(0, 0, 0, 0.275);
     border-bottom: 1px solid rgba(0, 0, 0, 0.275);
@@ -18,23 +19,20 @@ table {
         text-align: center;
         vertical-align: middle;
     }
+
+    button {
+        padding: 16px;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
 }
 
 .table-hover>tbody>tr.no-hover:hover {
     background-color: inherit;
 }
-
-.columns {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  
-  .column {
-
-  }
- 
