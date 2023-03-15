@@ -29,5 +29,14 @@
             </tr>
         </tbody>
     </table>
-    <app-total-ingredients [doughWeight]="model.doughWeight" [scale]="model.scale"></app-total-ingredients>
 </form>
+<div class="columns">
+    <div class="column">
+        <app-total-ingredients [doughWeight]="model.doughWeight" [scale]="model.scale"></app-total-ingredients>
+    </div>
+    <div class="column" id="app-ferments">
+        <app-ferments [doughWeight]="model.doughWeight" [scale]="model.scale"></app-ferments>
+    </div>
+    <div class="column">/// Column 3: Put any relevant content here ///</div>
+  </div>
+  
