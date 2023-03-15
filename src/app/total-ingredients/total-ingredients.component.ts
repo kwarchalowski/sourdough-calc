@@ -9,6 +9,7 @@ import { BreadComponentsService } from '../bread-components.service';
 export class TotalIngredientsComponent implements OnChanges {
 
   @Input() doughWeight = 0;
+  @Input() levain = 0;
   @Input() scale = 0;
 
   constructor(private breadComponents: BreadComponentsService) { }
@@ -16,7 +17,7 @@ export class TotalIngredientsComponent implements OnChanges {
   model = this.breadComponents.getIngredients();
 
   //* init
-  strongWhiteFlourWeight: number = 0;
+  strongWhiteFlourWeight: number = this.breadComponents.getStrongWhiteFlourWeight();
   waterWeight: number = 0;
   flourType2Weight: number = 0;
   flourType3Weight: number = 0;
@@ -34,56 +35,25 @@ export class TotalIngredientsComponent implements OnChanges {
     this.recalculateWeights();
   }
 
+  public getStrongWhiteFlourWeight() {
+    return this.strongWhiteFlourWeight;
+  }
 
   recalculateWeights(): void {
 
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
 
-    this.strongWhiteFlourWeight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.strongWhiteFlourBakers)) * this.scale).toFixed(1));
-    this.waterWeight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.waterBakers)) * this.scale).toFixed(1));
-    this.flourType2Weight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.flourType2Bakers)) * this.scale).toFixed(1));
-    this.flourType3Weight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.flourType3Bakers)) * this.scale).toFixed(1));
-    this.saltWeight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.saltBakers)) * this.scale).toFixed(1));
-    this.inclusion1Weight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.inclusion1Bakers)) * this.scale).toFixed(1));
-    this.inclusion2Weight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.inclusion2Bakers)) * this.scale).toFixed(1));
-    this.inclusion3Weight = parseFloat(((this.doughWeight / (this.model.totalBakers()) * (this.model.inclusion3Bakers)) * this.scale).toFixed(1));
+    // ?! how the fuck can I update that fuckin levain weight?
+    this.strongWhiteFlourWeight = parseFloat(this.breadComponents.getStrongWhiteFlourWeight().toFixed(1));
+    this.waterWeight = parseFloat(this.breadComponents.getWaterWeight().toFixed(1));
+    this.flourType2Weight = parseFloat(this.breadComponents.getFlourType2Weight().toFixed(1));
+    this.flourType3Weight = parseFloat(this.breadComponents.getFlourType3Weight().toFixed(1));
+    this.saltWeight = parseFloat(this.breadComponents.getSaltWeight().toFixed(1));
+    this.inclusion1Weight = parseFloat(this.breadComponents.getInclusion1Weight().toFixed(1));
+    this.inclusion2Weight = parseFloat(this.breadComponents.getInclusion2Weight().toFixed(1));
+    this.inclusion3Weight = parseFloat(this.breadComponents.getInclusion3Weight().toFixed(1));
 
-    var ingredientsPairs = [
-      {
-        bakers: this.model.strongWhiteFlourBakers,
-        weight: this.strongWhiteFlourWeight
-      },
-      {
-        bakers: this.model.waterBakers,
-        weight: this.waterWeight
-      },
-      {
-        bakers: this.model.flourType2Bakers,
-        weight: this.flourType2Weight
-      },
-      {
-        bakers: this.model.flourType3Bakers,
-        weight: this.flourType3Weight
-      },
-      {
-        bakers: this.model.saltBakers,
-        weight: this.saltWeight
-      },
-      {
-        bakers: this.model.inclusion1Bakers,
-        weight: this.inclusion1Weight
-      },
-      {
-        bakers: this.model.inclusion2Bakers,
-        weight: this.inclusion2Weight
-      },
-      {
-        bakers: this.model.inclusion3Bakers,
-        weight: this.inclusion3Weight
-      }
-    ]
-
-    this.totalWeight = Math.round(ingredientsPairs.reduce((acc, ingredient) => acc + ingredient.weight, 0));
+    this.totalWeight = Math.round(parseFloat((this.breadComponents.getTotalIngredientsWeight()).toFixed(1)));
   };
 
 }

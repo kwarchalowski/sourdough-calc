@@ -6,7 +6,7 @@ export class RecipeFormula {
         public scale: number
     ) { 
         doughWeight = 800;
-        levain = 0.1;
+        levain = 10;
         scale = 1;
     }
 

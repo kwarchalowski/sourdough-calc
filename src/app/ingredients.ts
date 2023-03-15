@@ -11,6 +11,8 @@ export class Ingredients {
         public inclusion3Bakers: number,
     ) { }
 
+    public ingredientsBakers = [this.strongWhiteFlourBakers, this.waterBakers, this.saltBakers, this.flourType2Bakers, this.flourType3Bakers, this.inclusion1Bakers, this.inclusion2Bakers, this.inclusion3Bakers];
+
     totalBakers() {
         return this.strongWhiteFlourBakers + this.waterBakers + this.saltBakers + this.flourType2Bakers + this.flourType3Bakers + this.inclusion1Bakers + this.inclusion2Bakers + this.inclusion3Bakers;
     }

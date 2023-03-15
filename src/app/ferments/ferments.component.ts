@@ -9,12 +9,10 @@ import { BreadComponentsService } from '../bread-components.service';
 export class FermentsComponent {
 
   @Input() doughWeight = 0;
+  @Input() levain = 0;
   @Input() scale = 0;
 
   constructor(private breadComponents: BreadComponentsService) { }
-
-  //ripeStarter = new RipeStarter(100, 100);
-  //levain = new Levain(100, 100, 10);
 
   model = this.breadComponents.getFerments();
 
@@ -24,6 +22,8 @@ export class FermentsComponent {
   levainFlourWeight: number = 0;
   levainWaterWeight: number = 0;
   levainRipeStarterWeight: number = 0;
+
+  levainWeight: number = this.breadComponents.getLevainWeight();
 
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class FermentsComponent {
 
 
   recalculateWeights(): void {
-
+    this.levainWeight = this.breadComponents.getLevainWeight();
   };
 
 
