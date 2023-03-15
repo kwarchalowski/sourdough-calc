@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Ingredients } from '../ingredients';
+import { BreadComponentsService } from '../bread-components.service';
 
 @Component({
   selector: 'app-total-ingredients',
@@ -11,8 +11,9 @@ export class TotalIngredientsComponent implements OnChanges {
   @Input() doughWeight = 0;
   @Input() scale = 0;
 
+  constructor(private breadComponents: BreadComponentsService) { }
 
-  model = new Ingredients(100, 70, 2, 0, 0, 0, 0, 0);
+  model = this.breadComponents.getIngredients();
 
   //* init
   strongWhiteFlourWeight: number = 0;

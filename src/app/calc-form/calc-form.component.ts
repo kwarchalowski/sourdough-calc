@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { RecipeFormula } from '../recipe-formula';
+import { BreadComponentsService } from '../bread-components.service';
 
 @Component({
   selector: 'app-calc-form',
@@ -9,10 +8,8 @@ import { RecipeFormula } from '../recipe-formula';
 })
 export class CalcFormComponent {
 
-  model = new RecipeFormula(800, 10, 1);
+  constructor(private breadComponents: BreadComponentsService) {}
 
-  submitted = false;
-
-  onSubmit() { this.submitted = true; }
+  model = this.breadComponents.getRecipeFormula();
 
 }
