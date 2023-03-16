@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class BreadComponentsService {
+  
+  constructor() { }
 
   private recipeFormula = new RecipeFormula(800, 10, 1);
   private levain = new Levain(100, 100, 10);
@@ -39,16 +41,19 @@ export class BreadComponentsService {
     mainDough: this.mainDough
   }
 
+    //* object we are changing
   private ingredientsWeights = {
-    strongWhiteFlourWeight: this.calculateSingleIngredientWeight(this.ingredients.strongWhiteFlourBakers),
-    flourType2Weight: this.calculateSingleIngredientWeight(this.ingredients.flourType2Bakers),
-    flourType3Weight: this.calculateSingleIngredientWeight(this.ingredients.flourType3Bakers),
-    waterWeight: this.calculateSingleIngredientWeight(this.ingredients.waterBakers),
-    saltWeight: this.calculateSingleIngredientWeight(this.ingredients.saltBakers),
-    inclusion1Weight: this.calculateSingleIngredientWeight(this.ingredients.inclusion1Bakers),
-    inclusion2Weight: this.calculateSingleIngredientWeight(this.ingredients.inclusion2Bakers),
-    inclusion3Weight: this.calculateSingleIngredientWeight(this.ingredients.inclusion3Bakers)    
+    strongWhiteFlourWeight: 0,
+    flourType2Weight: 0,
+    flourType3Weight: 0,
+    waterWeight: 0,
+    saltWeight: 0,
+    inclusion1Weight: 0,
+    inclusion2Weight: 0,
+    inclusion3Weight: 0    
   }
+  private ingredientsWeightsAsObservable = new BehaviorSubject<any>(this.ingredientsWeights); //* make an BehaviorSubject out of it
+  castIngredientsWeights = this.ingredientsWeightsAsObservable.asObservable(); //* cast as an Observable
 
   //* object we are changing
   private mainDoughWeights = {
@@ -65,18 +70,9 @@ export class BreadComponentsService {
   private mainDoughWeightsAsObservable = new BehaviorSubject<any>(this.mainDoughWeights); //* make an BehaviorSubject out of it
   castMainDoughWeights = this.mainDoughWeightsAsObservable.asObservable(); //* cast as an Observable
   
-  updateMainDoughWeights(): void { //* method that updates mainDoughtWeights
-    this.mainDoughWeightsAsObservable.next(this.getUpdateMainDoughWeights());
-  }
-
-  getUpdateMainDoughWeights(): any {
-    this.mainDoughWeights.levainWeight = this.getLevainWeight();
-    return this.mainDoughWeights;
-  }
 
   private totalIngredientsWeight = 0;
   
-  constructor() { }
 
   // *** METHODS
   calculateSingleIngredientWeight(ingredientInBakers: number) {
@@ -88,77 +84,132 @@ export class BreadComponentsService {
     return this.totalIngredientsWeight;
   }
 
+  // * UPDATES
+  //? MainDough
+  // TODO: remember to fill them
+  updateMainDoughStrongWhiteFlourWeight(): void { this.mainDoughWeights.strongWhiteFlourWeight = 0; }
+  updateMainDoughFlourType2Weight(): void { this.mainDoughWeights.flourType2Weight = 0; }
+  updateMainDoughFlourType3Weight(): void { this.mainDoughWeights.flourType3Weight = 0; }
+  updateMainDoughWaterWeight(): void { this.mainDoughWeights.waterWeight = 0; }
+  updateMainDoughSaltWeight(): void { this.mainDoughWeights.saltWeight = 0; }
+  updateMainDoughLevainWeight(): void { this.mainDoughWeights.levainWeight = (this.getIngredientsWeights().strongWhiteFlourWeight + this.getIngredientsWeights().flourType2Weight + this.getIngredientsWeights().flourType3Weight) * this.getRecipeFormula().levain/100; }
+  updateMainDoughInclusion1Weight(): void { this.mainDoughWeights.inclusion1Weight = 0; }
+  updateMainDoughInclusion2Weight(): void { this.mainDoughWeights.inclusion2Weight = 0; }
+  updateMainDoughInclusion3Weight(): void { this.mainDoughWeights.inclusion3Weight = 0; }
+  //? Ingredients
+  updateIngredientsStrongWhiteFlourWeight(): void { this.ingredientsWeights.strongWhiteFlourWeight = this.calculateSingleIngredientWeight(this.ingredients.strongWhiteFlourBakers); }
+  updateIngredientsFlourType2Weight(): void { this.ingredientsWeights.flourType2Weight = this.calculateSingleIngredientWeight(this.ingredients.flourType2Bakers); }
+  updateIngredientsFlourType3Weight(): void { this.ingredientsWeights.flourType3Weight = this.calculateSingleIngredientWeight(this.ingredients.flourType3Bakers); }
+  updateIngredientsWaterWeight(): void { this.ingredientsWeights.waterWeight = this.calculateSingleIngredientWeight(this.ingredients.waterBakers); }
+  updateIngredientsSaltWeight(): void { this.ingredientsWeights.saltWeight = this.calculateSingleIngredientWeight(this.ingredients.saltBakers); }
+  updateIngredientsInclusion1Weight(): void { this.ingredientsWeights.inclusion1Weight = this.calculateSingleIngredientWeight(this.ingredients.inclusion1Bakers); }
+  updateIngredientsInclusion2Weight(): void { this.ingredientsWeights.inclusion2Weight = this.calculateSingleIngredientWeight(this.ingredients.inclusion2Bakers); }
+  updateIngredientsInclusion3Weight(): void { this.ingredientsWeights.inclusion3Weight = this.calculateSingleIngredientWeight(this.ingredients.inclusion3Bakers); }
+
+  updateMainDoughWeights(): void {
+    this.updateMainDoughLevainWeight();
+    this.updateMainDoughStrongWhiteFlourWeight();
+    this.updateMainDoughFlourType2Weight();
+    this.updateMainDoughFlourType3Weight();
+    this.updateMainDoughWaterWeight();
+    this.updateMainDoughSaltWeight();
+    this.updateMainDoughInclusion1Weight();
+    this.updateMainDoughInclusion2Weight();
+    this.updateMainDoughInclusion3Weight();
+    this.mainDoughWeightsAsObservable.next(this.getMainDoughWeights());
+  }
+
+  updateIngredientsWeights(): void {
+    this.updateIngredientsStrongWhiteFlourWeight();
+    this.updateIngredientsFlourType2Weight();
+    this.updateIngredientsFlourType3Weight();
+    this.updateIngredientsWaterWeight();
+    this.updateIngredientsSaltWeight();
+    this.updateIngredientsInclusion1Weight();
+    this.updateIngredientsInclusion2Weight();
+    this.updateIngredientsInclusion3Weight();
+    this.ingredientsWeightsAsObservable.next(this.getIngredientsWeights());
+  }
+
   // * GETTERS
+  getMainDoughWeights(): any {
+    return this.mainDoughWeights;
+  }
+
+  getIngredientsWeights(): any {
+    return this.ingredientsWeights;
+  }
+
   getTotalIngredientsWeight(): number {
     return this.calculateTotalIngredientsWeight();
   }
 
   getLevainWeight(): number {
-    this.mainDoughWeights.levainWeight = (this.getStrongWhiteFlourWeight() + this.getFlourType2Weight() + this.getFlourType3Weight()) * this.breadComponents.recipeFormula.levain/100;
+    // this.updateLevainWeight();
     return this.mainDoughWeights.levainWeight;
   }
 
   getStrongWhiteFlourWeight(): number {
-    this.ingredientsWeights.strongWhiteFlourWeight = this.calculateSingleIngredientWeight(this.ingredients.strongWhiteFlourBakers);
+    // this.updateStrongWhiteFlourWeight();
     return this.ingredientsWeights.strongWhiteFlourWeight;
   }
 
   getFlourType2Weight(): number {
-    this.ingredientsWeights.flourType2Weight = this.calculateSingleIngredientWeight(this.ingredients.flourType2Bakers);
+    // this.updateFlourType2Weight();
     return this.ingredientsWeights.flourType2Weight;
   }
 
   getFlourType3Weight(): number {
-    this.ingredientsWeights.flourType3Weight = this.calculateSingleIngredientWeight(this.ingredients.flourType3Bakers);
+    // this.updateFlourType3Weight();
     return this.ingredientsWeights.flourType3Weight;
   }
 
   getWaterWeight(): number {
-    this.ingredientsWeights.waterWeight = this.calculateSingleIngredientWeight(this.ingredients.waterBakers);
+    // this.updateWaterWeight();
     return this.ingredientsWeights.waterWeight;
   }
 
   getSaltWeight(): number {
-    this.ingredientsWeights.saltWeight = this.calculateSingleIngredientWeight(this.ingredients.saltBakers);
+    // this.updateSaltWeight();
     return this.ingredientsWeights.saltWeight;
   }
 
   getInclusion1Weight(): number {
-    this.ingredientsWeights.inclusion1Weight = this.calculateSingleIngredientWeight(this.ingredients.inclusion1Bakers);
+    // this.updateInclusion1Weight();
     return this.ingredientsWeights.inclusion1Weight;
   }
 
   getInclusion2Weight(): number {
-    this.ingredientsWeights.inclusion2Weight = this.calculateSingleIngredientWeight(this.ingredients.inclusion2Bakers);
+    // this.updateInclusion2Weight();
     return this.ingredientsWeights.inclusion2Weight;
   }
 
   getInclusion3Weight(): number {
-    this.ingredientsWeights.inclusion3Weight = this.calculateSingleIngredientWeight(this.ingredients.inclusion3Bakers);
+    // this.updateInclusion3Weight();
     return this.ingredientsWeights.inclusion3Weight;
   }
 
-  getRecipeFormula() {
+  getRecipeFormula(): RecipeFormula {
     return this.recipeFormula;
   }
 
-  getLevain() {
+  getLevain(): Levain {
     return this.levain;
   }
 
-  getRipeStarter() {
+  getRipeStarter(): RipeStarter {
     return this.ripeStarter;
   }
 
-  getFerments() {
+  getFerments(): Ferments {
     return this.ferments;
   }
 
-  getIngredients() {
+  getIngredients(): Ingredients {
     return this.ingredients;
   }
 
-  getMainDough() {
+  getMainDough(): MainDough {
     return this.mainDough;
   }
 
