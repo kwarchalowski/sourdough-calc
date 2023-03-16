@@ -16,7 +16,8 @@ export class FermentsComponent {
 
   model = this.breadComponents.getFerments();
   fermentsWeights = this.breadComponents.getFermentsWeights();
-  totalWeight: number = this.breadComponents.getTotalFermentsLevainWeight();
+  //totalLevainWeight: number = this.breadComponents.getTotalFermentsLevainWeight();
+  //totalRipeStarterWeight: number = this.breadComponents.getTotalFermentsRipeStarterWeight();
 
   
   ngOnInit() {
@@ -31,10 +32,12 @@ export class FermentsComponent {
   
   
   recalculateWeights(): void {
-
+    // this.breadComponents.updateIngredientsWeights();
+    // this.breadComponents.updateMainDoughWeights();
     this.breadComponents.updateFermentsWeights();
     
-    this.totalWeight = this.breadComponents.getTotalFermentsLevainWeight();
+    //this.totalLevainWeight = this.breadComponents.getTotalFermentsLevainWeight();
+    //this.totalRipeStarterWeight = this.breadComponents.getTotalFermentsRipeStarterWeight();
   };
 
 }

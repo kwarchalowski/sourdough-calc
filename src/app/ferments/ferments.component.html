@@ -7,7 +7,7 @@
                     <h4>Ripe starter</h4>
                 </th>
                 <th scope="col" class="col-md-3 text-center">Baker's (%)</th>
-                <th scope="col" class="col-md-1 text-center">Weight (g)</th>
+                <th scope="col" class="col-md-2 text-center">Weight (g)</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
                     <input type="number" min="0" max="100" class="form-control" id="flourBakers" required readonly
                         [(ngModel)]="model.ripeStarter.flourBakers" name="flourBakers" #flourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
-                <td class="middle-center">flour weight</td>
+                <td class="middle-center">{{ fermentsWeights.ripeStarter.flourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Water</th>
@@ -25,12 +25,12 @@
                     <input type="number" min="0" max="100" class="form-control" id="waterBakers" required
                         [(ngModel)]="model.ripeStarter.waterBakers" name="waterBakers" #waterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
-                <td class="middle-center">water weight</td>
+                <td class="middle-center">{{ fermentsWeights.ripeStarter.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr class="no-hover">
                 <th scope="row" class="middle-right"></th>
                 <td></td>
-                <td class="bold middle-center">total weight</td>
+                <td class="bold middle-center">{{ fermentsWeights.totalRipeStarterWeight | number: '1.0-1' }} (g)</td>
             </tr>
         </tbody>
         <thead>
@@ -39,7 +39,7 @@
                     <h4>Levain</h4>
                 </th>
                 <th scope="col" class="col-md-3 text-center">Baker's (%)</th>
-                <th scope="col" class="col-md-1 text-center">Weight (g)</th>
+                <th scope="col" class="col-md-2 text-center">Weight (g)</th>
             </tr>
         </thead>
         <tbody>
@@ -50,7 +50,7 @@
                         readonly [(ngModel)]="model.levain.strongWhiteFlourBakers" name="strongWhiteFlourBakers"
                         #strongWhiteFlourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
-                <td class="middle-center">{{ fermentsWeights.levain.strongWhiteFlourWeight | number: '1.0-1' }}</td>
+                <td class="middle-center">{{ fermentsWeights.levain.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Water</th>
@@ -58,7 +58,7 @@
                     <input type="number" min="0" max="100" class="form-control" id="levainWaterBakers" required
                         [(ngModel)]="model.levain.waterBakers" name="levainWaterBakers" #levainWaterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
-                <td class="middle-center">{{ fermentsWeights.levain.waterWeight | number: '1.0-1' }}</td>
+                <td class="middle-center">{{ fermentsWeights.levain.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Ripe starter</th>
@@ -67,12 +67,12 @@
                         [(ngModel)]="model.levain.ripeStarterBakers" name="ripeStarterBakers"
                         #ripeStarterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
                 </td>
-                <td class="middle-center">{{ fermentsWeights.levain.ripeStarterWeight | number: '1.0-1' }}</td>
+                <td class="middle-center">{{ fermentsWeights.levain.ripeStarterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr class="no-hover">
                 <th scope="row" class="middle-right"></th>
                 <td></td>
-                <td class="bold middle-center">{{ totalWeight | number: '1.0-1' }} (g)</td>
+                <td class="bold middle-center">{{ fermentsWeights.totalLevainWeight | number: '1.0-1' }} (g)</td> 
             </tr>
         </tbody>
     </table>

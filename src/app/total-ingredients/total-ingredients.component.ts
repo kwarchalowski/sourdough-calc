@@ -1,5 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { BreadComponentsService } from '../bread-components.service';
+import { Ingredients } from '../ingredients';
+import { MainDough } from '../main-dough';
 
 @Component({
   selector: 'app-total-ingredients',
@@ -14,12 +16,26 @@ export class TotalIngredientsComponent implements OnChanges {
 
   constructor(private breadComponents: BreadComponentsService) { }
 
-  model = this.breadComponents.getIngredients();
+  model: Ingredients = this.breadComponents.getIngredients();
   ingredientsWeights: any = this.breadComponents.getIngredientsWeights();
   totalWeight: number = this.breadComponents.getTotalIngredientsWeight();
 
+  // ??????
+  private mainDough = new MainDough(
+    this.model.strongWhiteFlourBakers,
+    this.model.waterBakers,
+    this.model.saltBakers,
+    this.model.flourType2Bakers,
+    this.model.flourType3Bakers,
+    this.breadComponents.getRecipeFormula().levain,
+    this.model.inclusion1Bakers,
+    this.model.inclusion2Bakers,
+    this.model.inclusion3Bakers
+  );
+
   ngOnInit(): void {
     this.breadComponents.castIngredientsWeights.subscribe(ingredientsWeights => this.ingredientsWeights = ingredientsWeights);
+    this.breadComponents.castIngredients.subscribe(ingredients => this.model = ingredients);
     this.recalculateWeights();
   }
 
@@ -29,13 +45,37 @@ export class TotalIngredientsComponent implements OnChanges {
 
   recalculateWeights(): void {
 
-    this.breadComponents.updateMainDoughWeights();
+    
+    //this.breadComponents.setIngredients(this.model);
+    // this.mainDough = this.mod
+    
+    // this.mainDough.saltBakers = this.model.saltBakers;
+    // this.breadComponents.setMainDough(this.mainDough);
+    // this.mainDough = this.breadComponents.getMainDough();
+    // console.log('ingredients.mainDough.salt = ' + this.mainDough.saltBakers);
+    
     this.breadComponents.updateIngredientsWeights();
+    this.breadComponents.updateMainDoughWeights();
     this.breadComponents.updateFermentsWeights();
-
+    
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
     
+    this.updateMainDough();
     this.totalWeight = this.breadComponents.getTotalIngredientsWeight();
   };
+
+  updateMainDough(): void {
+    this.breadComponents.setMainDough(new MainDough(
+      this.model.strongWhiteFlourBakers,
+      this.model.waterBakers,
+      this.model.saltBakers,
+      this.model.flourType2Bakers,
+      this.model.flourType3Bakers,
+      this.breadComponents.getRecipeFormula().levain,
+      this.model.inclusion1Bakers,
+      this.model.inclusion2Bakers,
+      this.model.inclusion3Bakers
+    ));
+  }
 
 }

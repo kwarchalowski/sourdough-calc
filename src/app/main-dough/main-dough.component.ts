@@ -19,9 +19,11 @@ export class MainDoughComponent {
 
   ngOnInit() {
     this.breadComponents.castMainDoughWeights.subscribe(mainDoughWeights => this.mainDoughWeights = mainDoughWeights);
+    this.breadComponents.castMainDough.subscribe(mainDough => this.model = mainDough);
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.breadComponents.updateIngredientsWeights();
     this.breadComponents.updateMainDoughWeights();
     this.breadComponents.updateFermentsWeights();
   }
