@@ -41,6 +41,8 @@ export class TotalIngredientsComponent implements OnChanges {
 
   recalculateWeights(): void {
 
+    this.breadComponents.updateMainDoughWeights();
+
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
 
     // ?! how the fuck can I update that fuckin levain weight?

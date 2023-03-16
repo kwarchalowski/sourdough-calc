@@ -6,6 +6,7 @@ import { Ingredients } from './ingredients';
 import { RecipeFormula } from './recipe-formula';
 import { MainDough } from './main-dough';
 import { TotalIngredientsComponent } from './total-ingredients/total-ingredients.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -49,11 +50,31 @@ export class BreadComponentsService {
     inclusion3Weight: this.calculateSingleIngredientWeight(this.ingredients.inclusion3Bakers)    
   }
 
+  //* object we are changing
+  private mainDoughWeights = {
+    strongWhiteFlourWeight: 0,
+    flourType2Weight: 0,
+    flourType3Weight: 0,
+    waterWeight: 0,
+    saltWeight: 0,
+    levainWeight: 0,
+    inclusion1Weight: 0,
+    inclusion2Weight: 0,
+    inclusion3Weight: 0   
+  }
+  private mainDoughWeightsAsObservable = new BehaviorSubject<any>(this.mainDoughWeights); //* make an BehaviorSubject out of it
+  castMainDoughWeights = this.mainDoughWeightsAsObservable.asObservable(); //* cast as an Observable
+  
+  updateMainDoughWeights(): void { //* method that updates mainDoughtWeights
+    this.mainDoughWeightsAsObservable.next(this.getUpdateMainDoughWeights());
+  }
+
+  getUpdateMainDoughWeights(): any {
+    this.mainDoughWeights.levainWeight = this.getLevainWeight();
+    return this.mainDoughWeights;
+  }
+
   private totalIngredientsWeight = 0;
-
-  //private totalIngredientsWeight = Math.round(this.ingredientsWeights.map((acc, ingredient) => acc + ingredient.weight, 0));
-
-  private levainWeight = (this.getStrongWhiteFlourWeight() + this.getFlourType2Weight() + this.getFlourType3Weight()) * this.breadComponents.recipeFormula.levain/100;
   
   constructor() { }
 
@@ -73,8 +94,8 @@ export class BreadComponentsService {
   }
 
   getLevainWeight(): number {
-    this.levainWeight = (this.getStrongWhiteFlourWeight() + this.getFlourType2Weight() + this.getFlourType3Weight()) * this.breadComponents.recipeFormula.levain/100;
-    return this.levainWeight;
+    this.mainDoughWeights.levainWeight = (this.getStrongWhiteFlourWeight() + this.getFlourType2Weight() + this.getFlourType3Weight()) * this.breadComponents.recipeFormula.levain/100;
+    return this.mainDoughWeights.levainWeight;
   }
 
   getStrongWhiteFlourWeight(): number {

@@ -22,11 +22,30 @@ export class MainDoughComponent {
   flourType3Weight: number = 0;
   waterWeight: number = 0;
   saltWeight: number = 0;
-  levainWeight: number = this.breadComponents.getLevainWeight();
+  levainWeight: number = 0;
+  //levainWeight: number = this.breadComponents.getLevainWeight();
   inclusion1Weight: number = 0;
   inclusion2Weight: number = 0;
   inclusion3Weight: number = 0;
 
-  
+  private mainDoughWeights = {
+    strongWhiteFlourWeight: 0,
+    flourType2Weight: 0,
+    flourType3Weight: 0,
+    waterWeight: 0,
+    saltWeight: 0,
+    levainWeight: 0,
+    inclusion1Weight: 0,
+    inclusion2Weight: 0,
+    inclusion3Weight: 0   
+  }
+
+  ngOnInit() {
+    this.breadComponents.castMainDoughWeights.subscribe(mainDoughWeights => this.mainDoughWeights = mainDoughWeights);
+  }
+
+  getMainDoughWeights(): any {
+    return this.mainDoughWeights;
+  }
 
 }
