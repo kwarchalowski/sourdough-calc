@@ -21,4 +21,9 @@ export class MainDoughComponent {
     this.breadComponents.castMainDoughWeights.subscribe(mainDoughWeights => this.mainDoughWeights = mainDoughWeights);
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    this.breadComponents.updateMainDoughWeights();
+    this.breadComponents.updateFermentsWeights();
+  }
+
 }

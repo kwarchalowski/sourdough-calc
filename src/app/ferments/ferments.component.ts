@@ -15,30 +15,26 @@ export class FermentsComponent {
   constructor(private breadComponents: BreadComponentsService) { }
 
   model = this.breadComponents.getFerments();
+  fermentsWeights = this.breadComponents.getFermentsWeights();
+  totalWeight: number = this.breadComponents.getTotalFermentsLevainWeight();
 
-  //* init
-  starterFlourWeight: number = 0;
-  starterWaterWeight: number = 0;
-  levainFlourWeight: number = 0;
-  levainWaterWeight: number = 0;
-  levainRipeStarterWeight: number = 0;
-
-  levainWeight: number = this.breadComponents.getLevainWeight();
-
-
+  
   ngOnInit() {
+    this.breadComponents.castFermentsWeights.subscribe(fermentsWeights => this.fermentsWeights = fermentsWeights);
     this.recalculateWeights();
   }
-
+  
   ngOnChanges(changes: SimpleChanges) {
     this.recalculateWeights();
   }
-
-
+  
+  
+  
   recalculateWeights(): void {
-    
-    this.levainWeight = this.breadComponents.getLevainWeight();
-  };
 
+    this.breadComponents.updateFermentsWeights();
+    
+    this.totalWeight = this.breadComponents.getTotalFermentsLevainWeight();
+  };
 
 }
