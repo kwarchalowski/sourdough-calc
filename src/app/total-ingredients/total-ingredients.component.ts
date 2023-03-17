@@ -44,16 +44,6 @@ export class TotalIngredientsComponent implements OnChanges {
   }
 
   recalculateWeights(): void {
-
-    
-    //this.breadComponents.setIngredients(this.model);
-    // this.mainDough = this.mod
-    
-    // this.mainDough.saltBakers = this.model.saltBakers;
-    // this.breadComponents.setMainDough(this.mainDough);
-    // this.mainDough = this.breadComponents.getMainDough();
-    // console.log('ingredients.mainDough.salt = ' + this.mainDough.saltBakers);
-    
     this.breadComponents.updateIngredientsWeights();
     this.breadComponents.updateFermentsWeights();
     this.breadComponents.updateMainDoughWeights();
