@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreadComponentsService } from '../bread-components.service';
 
 @Component({
@@ -8,10 +8,6 @@ import { BreadComponentsService } from '../bread-components.service';
 })
 export class MainDoughComponent {
 
-  @Input() doughWeight = 0;
-  @Input() levain = 0;
-  @Input() scale = 0;
-
   constructor(private breadComponents: BreadComponentsService) { }
 
   mainDoughWeights = this.breadComponents.getMainDoughWeights();
@@ -20,12 +16,6 @@ export class MainDoughComponent {
   ngOnInit() {
     this.breadComponents.castMainDoughWeights.subscribe(mainDoughWeights => this.mainDoughWeights = mainDoughWeights);
     this.breadComponents.castMainDough.subscribe(mainDough => this.model = mainDough);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.breadComponents.updateIngredientsWeights();
-    this.breadComponents.updateMainDoughWeights();
-    this.breadComponents.updateFermentsWeights();
   }
 
 }

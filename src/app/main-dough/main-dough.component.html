@@ -13,70 +13,70 @@
             <tr>
                 <th scope="row" class="middle-right">Strong white flour</th>
                 <td>
-                    {{model.strongWhiteFlourBakers}}
+                    {{model.strongWhiteFlourBakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Flour type 2</th>
                 <td>
-                    {{model.flourType2Bakers}}
+                    {{model.flourType2Bakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.flourType2Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Flour type 3</th>
                 <td>
-                    {{model.flourType3Bakers}}
+                    {{model.flourType3Bakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.flourType3Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Water</th>
                 <td>
-                    {{model.waterBakers}}
+                    {{model.waterBakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Salt</th>
                 <td>
-                    {{model.saltBakers}}
+                    {{model.saltBakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.saltWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Levain</th>
                 <td>
-                    {{model.levain}}
+                    {{model.levain}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.levainWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Inclusion 1</th>
                 <td>
-                    {{model.inclusion1Bakers}}
+                    {{model.inclusion1Bakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.inclusion1Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Inclusion 2</th>
                 <td>
-                    {{model.inclusion2Bakers}}
+                    {{model.inclusion2Bakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.inclusion2Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Inclusion 3</th>
                 <td>
-                    {{model.inclusion3Bakers}}
+                    {{model.inclusion3Bakers}}%
                 </td>
                 <td class="middle-center">{{ mainDoughWeights.inclusion3Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr class="no-hover">
                 <th scope="row" class="middle-right"></th>
                 <td></td>
-                <td class="bold middle-center">total weight</td>
+                <td class="bold middle-center">{{ mainDoughWeights.totalWeight | number: '1.0-1' }} (g)</td>
             </tr>
         </tbody>
     </table>

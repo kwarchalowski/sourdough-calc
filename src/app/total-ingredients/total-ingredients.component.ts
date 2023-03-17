@@ -55,8 +55,8 @@ export class TotalIngredientsComponent implements OnChanges {
     // console.log('ingredients.mainDough.salt = ' + this.mainDough.saltBakers);
     
     this.breadComponents.updateIngredientsWeights();
-    this.breadComponents.updateMainDoughWeights();
     this.breadComponents.updateFermentsWeights();
+    this.breadComponents.updateMainDoughWeights();
     
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
     
