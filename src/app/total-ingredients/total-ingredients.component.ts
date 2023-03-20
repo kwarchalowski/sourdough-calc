@@ -52,7 +52,7 @@ export class TotalIngredientsComponent implements OnChanges {
     
     this.updateMainDough();
     this.totalWeight = this.breadComponents.getTotalIngredientsWeight();
-  };
+  }
 
   updateMainDough(): void {
     this.breadComponents.setMainDough(new MainDough(

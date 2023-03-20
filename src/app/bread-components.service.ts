@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class BreadComponentsService {
 
-  constructor() { }
+  //constructor() { }
 
   private recipeFormula = new RecipeFormula(800, 10, 1);
   private levain = new Levain(100, 100, 10);

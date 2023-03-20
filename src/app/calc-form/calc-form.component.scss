@@ -20,10 +20,6 @@ table {
     }
 }
 
-.table-hover>tbody>tr.no-hover:hover {
-    background-color: inherit;
-}
-
 .columns {
     display: flex;
     align-items: flex-start;
@@ -32,9 +28,6 @@ table {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-  }
-  
-  .column {
+}
 
-  }
- 
+.column {}
