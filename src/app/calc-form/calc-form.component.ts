@@ -1,5 +1,5 @@
 import { Component, SimpleChanges } from '@angular/core';
-import { BreadComponentsService } from '../bread-components.service';
+import { BreadComponentsService } from '../services/bread-components.service';
 
 @Component({
   selector: 'app-calc-form',
@@ -21,7 +21,16 @@ export class CalcFormComponent {
   }
   
   updateFormula() {
-    
+    this.model = this.breadComponents.getRecipeFormula();
+  }
+
+  saveToLocalStorage() {
+    this.breadComponents.saveToLocalStorage();
+  }
+
+  loadFromLocalStorage() {
+    this.breadComponents.loadFromLocalStorage();
+    this.updateFormula();
   }
 
 }

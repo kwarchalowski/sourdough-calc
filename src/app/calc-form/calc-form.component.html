@@ -2,29 +2,30 @@
     <table id="recipeTable" class="table">
         <thead>
             <tr>
-                    <h2 class="middle-center">Sourdough bread recipe</h2>
+                <h2 class="middle-center">Sourdough bread recipe</h2>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row" class="middle-right">Dough weight (g)</th>
                 <td>
-                    <input type="number" min="100" max="2000" class="form-control" id="doughWeight" required [(ngModel)]="model.doughWeight"
-                        name="doughWeight" #doughWeight="ngModel" (ngModelChange)="updateFormula()"/>
+                    <input type="number" min="100" max="2000" class="form-control" id="doughWeight" required
+                        [(ngModel)]="model.doughWeight" name="doughWeight" #doughWeight="ngModel"
+                        (ngModelChange)="updateFormula()" />
                 </td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Levain (%)</th>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" id="levain" required [(ngModel)]="model.levain"
-                        name="levain" #levain="ngModel" />
+                    <input type="number" min="0" max="100" class="form-control" id="levain" required
+                        [(ngModel)]="model.levain" name="levain" #levain="ngModel" />
                 </td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">Number of loaves</th>
                 <td>
-                    <input type="number" min="0" max="30" class="form-control" id="scale" required [(ngModel)]="model.scale" name="scale"
-                        #scale="ngModel" />
+                    <input type="number" min="0" max="30" class="form-control" id="scale" required
+                        [(ngModel)]="model.scale" name="scale" #scale="ngModel" />
                 </td>
             </tr>
         </tbody>
@@ -32,13 +33,19 @@
 </form>
 <div class="columns">
     <div class="column">
-        <app-total-ingredients [doughWeight]="model.doughWeight" [levain]="model.levain" [scale]="model.scale"></app-total-ingredients>
+        <app-total-ingredients [doughWeight]="model.doughWeight" [levain]="model.levain"
+            [scale]="model.scale"></app-total-ingredients>
+            
     </div>
     <div class="column" id="app-ferments">
         <app-ferments [doughWeight]="model.doughWeight" [levain]="model.levain" [scale]="model.scale"></app-ferments>
     </div>
     <div class="column" id="app-main-dough">
         <app-main-dough></app-main-dough>
+        <div class="save-load">
+            <button class="btn btn-success" (click)="saveToLocalStorage()">Save to LocalStorage</button>
+            <button class="btn btn-info" (click)="loadFromLocalStorage()">Load from LocalStorage</button>
+        </div>
     </div>
-  </div>
-  
+</div>
+

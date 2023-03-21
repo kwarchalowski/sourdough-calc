@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BreadComponentsService } from '../bread-components.service';
+import { BreadComponentsService } from '../services/bread-components.service';
 
 @Component({
   selector: 'app-main-dough',
@@ -10,8 +10,8 @@ export class MainDoughComponent {
 
   constructor(private breadComponents: BreadComponentsService) { }
 
-  mainDoughWeights = this.breadComponents.getMainDoughWeights();
   model = this.breadComponents.getMainDough();
+  mainDoughWeights = this.breadComponents.getMainDoughWeights();
 
   ngOnInit() {
     this.breadComponents.castMainDoughWeights.subscribe(mainDoughWeights => this.mainDoughWeights = mainDoughWeights);

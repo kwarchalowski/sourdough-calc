@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { CalcFormComponent } from './calc-form/calc-form.component';
 import { TotalIngredientsComponent } from './total-ingredients/total-ingredients.component';
 import { FermentsComponent } from './ferments/ferments.component';
-import { BreadComponentsService } from './bread-components.service';
+import { BreadComponentsService } from './services/bread-components.service';
 import { MainDoughComponent } from './main-dough/main-dough.component';
+import { UseLocalStorageService } from './services/use-local-storage.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { MainDoughComponent } from './main-dough/main-dough.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [BreadComponentsService],
+  providers: [BreadComponentsService, UseLocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

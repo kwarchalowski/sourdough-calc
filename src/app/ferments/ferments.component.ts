@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { BreadComponentsService } from '../bread-components.service';
+import { BreadComponentsService } from '../services/bread-components.service';
 
 @Component({
   selector: 'app-ferments',
@@ -32,6 +32,6 @@ export class FermentsComponent {
   
   recalculateWeights(): void {
     this.breadComponents.updateFermentsWeights();
-  };
+  }
 
 }
