@@ -22,9 +22,6 @@ export class UseLocalStorageService {
     if (recipe === null) return null;
 
     return JSON.parse(recipe);
-
-
-    // return JSON.parse(localStorage.getItem('recipe-ingredients') || '{}');
   }
 
 

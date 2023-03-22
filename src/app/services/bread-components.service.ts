@@ -27,7 +27,7 @@ export class BreadComponentsService {
   castRipeStarter = this.ripeStarterAsObservable.asObservable(); //* cast as an Observable
 
   //* object we are changing
-  private ferments = new Ferments(this.ripeStarter, this.levain);
+  private ferments = new Ferments(this.getRipeStarter(), this.getLevain());
   private fermentsAsObservable = new BehaviorSubject<Ferments>(this.ferments); //* make an BehaviorSubject out of it
   castFerments = this.fermentsAsObservable.asObservable(); //* cast as an Observable
 
@@ -138,7 +138,6 @@ export class BreadComponentsService {
   updateFermentsLevainTotalWeight(): void { this.fermentsWeights.levain.totalWeight = this.getFermentsWeights().levain.strongWhiteFlourWeight + this.getFermentsWeights().levain.waterWeight + this.getFermentsWeights().levain.ripeStarterWeight; }
 
   private calculateSingleIngredientWeight(ingredientInBakers: number): number {
-    // console.log('totalBakers(): ' + this.getIngredients().totalBakers());
     return (this.getRecipeFormula().doughWeight / (this.calculateIngredientsTotalBakers()) * (ingredientInBakers)) * this.getRecipeFormula().scale;
   }
 
@@ -161,7 +160,7 @@ export class BreadComponentsService {
   }
 
   updateMainDoughWeights(): void {
-    this.updateIngredientsWeights(); //* need to update them first! :)
+    this.updateIngredientsWeights(); //* need to update them first!
     this.updateMainDoughLevainWeight();
     this.updateMainDoughStrongWhiteFlourWeight();
     this.updateMainDoughFlourType2Weight();
@@ -176,7 +175,7 @@ export class BreadComponentsService {
   }
 
   updateFermentsWeights(): void {
-    this.updateMainDoughWeights(); //* need to update them first! :)
+    this.updateMainDoughWeights(); //* need to update them first!
     this.updateFermentsLevainStrongWhiteFlourWeight();
     this.updateFermentsLevainWaterWeight();
     this.updateFermentsLevainRipeStarterWeight();
@@ -195,11 +194,6 @@ export class BreadComponentsService {
 
   //* LOCAL STORAGE
   saveToLocalStorage() {
-    // this.setRecipeFormula(this.getRecipeFormula());
-    // this.setIngredients(this.getIngredients());
-    // this.setMainDough(this.getMainDough());
-    // this.setFerments(this.getFerments());
-
     const recipeIngredients: RecipeIngredients = {
       recipeFormula: this.getRecipeFormula(), 
       ingredients: this.getIngredients(),
@@ -220,112 +214,90 @@ export class BreadComponentsService {
     }
 
     this.setRecipeFormula(recipe.recipeFormula);
-    // console.log('recipeFormula: ' + JSON.stringify(recipe.recipeFormula));
     this.setIngredients(recipe.ingredients);
-    // console.log('ingredients: ' + JSON.stringify(recipe.ingredients));
     this.setMainDough(recipe.mainDough);
-    // console.log('mainDough: ' + JSON.stringify(recipe.mainDough));
+    this.setLevain(recipe.ferments.levain);
+    this.setRipeStarter(recipe.ferments.ripeStarter);
     this.setFerments(recipe.ferments);
-    // console.log('ferments: ' + JSON.stringify(recipe.ferments));
     this.updateAllWeights();
     console.info('Recipe loaded.');
   }
 
   // * GETTERS
   getMainDoughWeights(): any {
-    // return this.mainDoughWeights;
     return this.mainDoughWeightsAsObservable.getValue();
   }
 
   getIngredientsWeights(): any {
-    // return this.ingredientsWeights;
     return this.ingredientsWeightsAsObservable.getValue();
   }
 
   getFermentsWeights(): any {
-    // return this.fermentsWeights;
-    console.log('fermentsWeights: ' + JSON.stringify(this.fermentsWeightsAsObservable.getValue()));
     return this.fermentsWeightsAsObservable.getValue();
   }
 
   getFermentsLevainBakersTotal(): number {
-    // return this.levain.ripeStarterBakers + this.levain.strongWhiteFlourBakers + this.levain.waterBakers;
     return this.levainAsObservable.getValue().ripeStarterBakers + this.levainAsObservable.getValue().strongWhiteFlourBakers + this.levainAsObservable.getValue().waterBakers;
   }
 
   getFermentsRipeStarterBakersTotal(): number {
-    // return this.ripeStarter.flourBakers + this.ripeStarter.waterBakers;
     return this.ripeStarterAsObservable.getValue().flourBakers + this.ripeStarterAsObservable.getValue().waterBakers;
   }
 
   getTotalFermentsLevainWeight(): number {
-    // return this.fermentsWeights.levain.totalWeight;
     return this.fermentsWeightsAsObservable.getValue().levain.totalWeight;
   }
 
   getTotalFermentsRipeStarterWeight(): number {
-    // return this.fermentsWeights.ripeStarter.totalWeight;
     return this.fermentsWeightsAsObservable.getValue().ripeStarter.totalWeight;
   }
 
   getTotalIngredientsWeight(): number {
-    // return this.ingredientsWeights.totalWeight;
     return this.ingredientsWeightsAsObservable.getValue().totalWeight;
   }
 
   getTotalMainDoughWeight(): number {
-    // return this.mainDoughWeights.totalWeight;
     return this.mainDoughWeightsAsObservable.getValue().totalWeight;
   }
 
   getRecipeFormula(): RecipeFormula {
-    // return this.recipeFormula;
     return this.recipeFormulaAsObservable.getValue();
   }
 
   getLevain(): Levain {
-    // return this.levain;
     return this.levainAsObservable.getValue();
   }
 
   getRipeStarter(): RipeStarter {
-    // return this.ripeStarter;
     return this.ripeStarterAsObservable.getValue();
   }
 
   getFerments(): Ferments {
-    // return this.ferments;
     return this.fermentsAsObservable.getValue();
   }
 
   getIngredients(): Ingredients {
     return this.ingredientsAsObservable.getValue();
-    // return this.ingredients;
   }
 
   getMainDough(): MainDough {
-    // return this.mainDough;
     return this.mainDoughAsObservable.getValue();
   }
 
   // * SETTERS
   setRecipeFormula(recipeFormula: RecipeFormula) {
     this.recipeFormulaAsObservable.next(recipeFormula)
-    // this.recipeFormula = recipeFormula;
   }
 
   setLevain(levain: Levain) {
-    // this.levain = levain;
     this.levainAsObservable.next(levain);
   }
 
   setRipeStarter(ripeStarter: RipeStarter) {
-    // this.ripeStarter = ripeStarter;
     this.ripeStarterAsObservable.next(ripeStarter);
   }
 
   setFerments(ferments: Ferments) {
-    // this.ferments = ferments;
     this.fermentsAsObservable.next(ferments);
   }
 

@@ -47,15 +47,16 @@ export class TotalIngredientsComponent implements OnChanges {
   }
 
   recalculateWeights(): void {
-    this.breadComponents.updateIngredientsWeights();
-    this.breadComponents.updateFermentsWeights();
-    this.breadComponents.updateMainDoughWeights();
+    // this.breadComponents.updateIngredientsWeights();
+    // this.breadComponents.updateFermentsWeights();
+    // this.breadComponents.updateMainDoughWeights();
     this.updateMainDough();
+    this.breadComponents.updateAllWeights();
     
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
     
     this.totalWeight = this.breadComponents.getTotalIngredientsWeight();
-    console.log('weight: ' + this.totalWeight);
+    // console.log('weight: ' + this.totalWeight);
   }
 
   updateMainDough(): void {
