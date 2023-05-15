@@ -115,7 +115,7 @@ export class BreadComponentsService {
   updateMainDoughInclusion1Weight(): void { this.mainDoughWeights.inclusion1Weight = this.getIngredientsWeights().inclusion1Weight; }
   updateMainDoughInclusion2Weight(): void { this.mainDoughWeights.inclusion2Weight = this.getIngredientsWeights().inclusion2Weight; }
   updateMainDoughInclusion3Weight(): void { this.mainDoughWeights.inclusion3Weight = this.getIngredientsWeights().inclusion3Weight; }
-  updateMainDoughTotalWeight(): void { this.mainDoughWeights.totalWeight = this.getMainDoughWeights().strongWhiteFlourWeight + this.getMainDoughWeights().flourType2Weight + this.getMainDoughWeights().flourType3Weight + this.getMainDoughWeights().waterWeight + this.getMainDoughWeights().saltWeight + this.getMainDoughWeights().levainWeight + this.getMainDoughWeights().inclusion1Weight + this.getMainDoughWeights().inclusion2Weight + this.getMainDoughWeights().inclusion3Weight; }
+  updateMainDoughTotalWeight(): void { this.mainDoughWeights.totalWeight = this.getMainDoughWeights().strongWhiteFlourWeight + this.getMainDoughWeights().flourType2Weight + this.getMainDoughWeights().flourType3Weight + this.getMainDoughWeights().waterWeight + this.getMainDoughWeights().saltWeight + this.getMainDoughWeights().levainWeight + this.getMainDoughWeights().inclusion1Weight + this.getMainDoughWeights().inclusion2Weight + this.getMainDoughWeights().inclusion3Weight; console.warn('mainDoughTotalWeight: ' + this.mainDoughWeights.totalWeight);}
   //? Ingredients
   updateIngredientsStrongWhiteFlourWeight(): void { this.ingredientsWeights.strongWhiteFlourWeight = this.calculateSingleIngredientWeight(this.getIngredients().strongWhiteFlourBakers); }
   updateIngredientsFlourType2Weight(): void { this.ingredientsWeights.flourType2Weight = this.calculateSingleIngredientWeight(this.getIngredients().flourType2Bakers); }
@@ -138,11 +138,13 @@ export class BreadComponentsService {
   updateFermentsLevainTotalWeight(): void { this.fermentsWeights.levain.totalWeight = this.getFermentsWeights().levain.strongWhiteFlourWeight + this.getFermentsWeights().levain.waterWeight + this.getFermentsWeights().levain.ripeStarterWeight; }
 
   private calculateSingleIngredientWeight(ingredientInBakers: number): number {
-    return (this.getRecipeFormula().doughWeight / (this.calculateIngredientsTotalBakers()) * (ingredientInBakers)) * this.getRecipeFormula().scale;
+    return (this.getRecipeFormula().doughWeight / (this.getIngredientsTotalBakers()) * (ingredientInBakers)) * this.getRecipeFormula().scale;
   }
 
-  calculateIngredientsTotalBakers(): number {
+  getIngredientsTotalBakers(): number {
+    // console.warn('ingredients: ' + JSON.stringify(this.getIngredients()));
     const totalBakers = this.getIngredients().strongWhiteFlourBakers + this.getIngredients().flourType2Bakers + this.getIngredients().flourType3Bakers + this.getIngredients().waterBakers + this.getIngredients().saltBakers + this.getIngredients().inclusion1Bakers + this.getIngredients().inclusion2Bakers + this.getIngredients().inclusion3Bakers;
+    // console.info('-- ' + totalBakers);
     return totalBakers;
   }
 
@@ -186,9 +188,9 @@ export class BreadComponentsService {
     this.fermentsWeightsAsObservable.next(this.fermentsWeights);
   }
 
-  updateAllWeights(): void {
-    this.updateIngredientsWeights();
-    this.updateMainDoughWeights();
+  recalculateWeights(): void {
+    // this.updateIngredientsWeights();
+    // this.updateMainDoughWeights();
     this.updateFermentsWeights();
   }
 
@@ -201,8 +203,8 @@ export class BreadComponentsService {
       ferments: this.getFerments()
     };
 
-    this.updateAllWeights();
-    this.localStorage.save(recipeIngredients);
+    this.recalculateWeights();
+    this.localStorage.save(recipeIngredients, this.mainDoughWeights);
   }
 
   loadFromLocalStorage() {
@@ -219,7 +221,7 @@ export class BreadComponentsService {
     this.setLevain(recipe.ferments.levain);
     this.setRipeStarter(recipe.ferments.ripeStarter);
     this.setFerments(recipe.ferments);
-    this.updateAllWeights();
+    this.recalculateWeights();
     console.info('Recipe loaded.');
   }
 

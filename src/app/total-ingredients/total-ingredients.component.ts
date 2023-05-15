@@ -50,8 +50,9 @@ export class TotalIngredientsComponent implements OnChanges {
     // this.breadComponents.updateIngredientsWeights();
     // this.breadComponents.updateFermentsWeights();
     // this.breadComponents.updateMainDoughWeights();
+    
     this.updateMainDough();
-    this.breadComponents.updateAllWeights();
+    this.breadComponents.recalculateWeights();
     
     this.model.strongWhiteFlourBakers = 100 - this.model.flourType2Bakers - this.model.flourType3Bakers;
     
@@ -60,7 +61,7 @@ export class TotalIngredientsComponent implements OnChanges {
   }
 
   updateMainDough(): void {
-
+  //! TODO: bakers values are not current but previous
     const mainDough = new MainDough(
       this.model.strongWhiteFlourBakers,
       this.model.waterBakers,

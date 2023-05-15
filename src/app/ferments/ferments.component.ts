@@ -31,7 +31,7 @@ export class FermentsComponent implements OnInit {
   }
   
   recalculateWeights(): void {
-    this.breadComponents.updateAllWeights();
+    this.breadComponents.recalculateWeights();
   }
 
 }

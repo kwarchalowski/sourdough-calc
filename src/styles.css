@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+body {
+  background-color: #fffdf9;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, rgba(255, 255, 255, 0)), to(white)), url("/assets/img/No-Knead-Bread-Recipe-4-3.jpg");
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 20%, white), url("/assets/img/No-Knead-Bread-Recipe-4-3.jpg");
+  background-repeat: no-repeat;
+  background-position: left;
+  color: #272727;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body form:not(#recipeForm) {
+  height: 600px;
+}
+
+#recipeTable,
+#weightsTable,
+#fermentsTable {
+  margin: auto;
+  margin-top: 12px;
+}
+
+#recipeTable tr,
+#weightsTable tr,
+#fermentsTable tr {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#recipeTable tr .form-control:focus,
+#weightsTable tr .form-control:focus,
+#fermentsTable tr .form-control:focus {
+  -webkit-box-shadow: inset 0px 0px 8px 2px rgba(233, 185, 89, 0.25);
+  box-shadow: inset 0px 0px 8px 2px rgba(233, 185, 89, 0.25);
+  border: 1px solid rgba(233, 185, 89, 0.9);
+}
+
+#recipeTable tr td.bold,
+#weightsTable tr td.bold,
+#fermentsTable tr td.bold {
+  font-weight: bold;
+}
+
+#recipeTable tr input,
+#weightsTable tr input,
+#fermentsTable tr input {
+  width: 100%;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+#recipeTable tr input[type='number']:not(:-moz-read-only),
+#weightsTable tr input[type='number']:not(:-moz-read-only),
+#fermentsTable tr input[type='number']:not(:-moz-read-only) {
+  background-color: #fffdf9;
+}
+
+#recipeTable tr input[type='number']:not(:read-only),
+#weightsTable tr input[type='number']:not(:read-only),
+#fermentsTable tr input[type='number']:not(:read-only) {
+  background-color: #fffdf9;
+}
+
+#recipeTable tr input[type='number']:-moz-read-only,
+#weightsTable tr input[type='number']:-moz-read-only,
+#fermentsTable tr input[type='number']:-moz-read-only {
+  pointer-events: none;
+  background: repeating-linear-gradient(45deg, #f8faff41, #f8faff41 6px, #e6e6e663 6px, #e6e6e663 12px);
+}
+
+#recipeTable tr input[type='number']:read-only,
+#weightsTable tr input[type='number']:read-only,
+#fermentsTable tr input[type='number']:read-only {
+  pointer-events: none;
+  background: repeating-linear-gradient(45deg, #f8faff41, #f8faff41 6px, #e6e6e663 6px, #e6e6e663 12px);
+}
+
+.table-hover > tbody > tr.no-hover:hover {
+  background-color: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+/*# sourceMappingURL=styles.css.map */
