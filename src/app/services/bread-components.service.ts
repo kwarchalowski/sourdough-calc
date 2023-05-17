@@ -21,7 +21,7 @@ export class BreadComponentsService {
   private levainAsObservable = new BehaviorSubject<Levain>(this.levain); //* make an BehaviorSubject out of it
   castLevain = this.levainAsObservable.asObservable(); //* cast as an Observable
 
-    //* object we are changing
+  //* object we are changing
   private ripeStarter = new RipeStarter(100, 100);
   private ripeStarterAsObservable = new BehaviorSubject<RipeStarter>(this.ripeStarter); //* make an BehaviorSubject out of it
   castRipeStarter = this.ripeStarterAsObservable.asObservable(); //* cast as an Observable
@@ -142,9 +142,8 @@ export class BreadComponentsService {
   }
 
   getIngredientsTotalBakers(): number {
-    // console.warn('ingredients: ' + JSON.stringify(this.getIngredients()));
     const totalBakers = this.getIngredients().strongWhiteFlourBakers + this.getIngredients().flourType2Bakers + this.getIngredients().flourType3Bakers + this.getIngredients().waterBakers + this.getIngredients().saltBakers + this.getIngredients().inclusion1Bakers + this.getIngredients().inclusion2Bakers + this.getIngredients().inclusion3Bakers;
-    // console.info('-- ' + totalBakers);
+
     return totalBakers;
   }
 
@@ -189,9 +188,10 @@ export class BreadComponentsService {
   }
 
   recalculateWeights(): void {
-    // this.updateIngredientsWeights();
-    // this.updateMainDoughWeights();
+    //* values dependency chain~ updated in reverse order
     this.updateFermentsWeights();
+    this.updateMainDoughWeights();
+    this.updateIngredientsWeights();
   }
 
   //* LOCAL STORAGE
@@ -203,7 +203,7 @@ export class BreadComponentsService {
       ferments: this.getFerments()
     };
 
-    this.recalculateWeights();
+    this.recalculateWeights(); //? do we need to update it once again before save?
     this.localStorage.save(recipeIngredients, this.mainDoughWeights);
   }
 

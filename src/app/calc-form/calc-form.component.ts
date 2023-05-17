@@ -12,9 +12,6 @@ export class CalcFormComponent {
 
   model = this.breadComponents.getRecipeFormula();
 
-  ngOnInit() {
-    
-  }
 
   ngOnChanges(changes: SimpleChanges) {
     this.model = this.breadComponents.getRecipeFormula();
