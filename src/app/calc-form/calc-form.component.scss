@@ -2,9 +2,8 @@ table {
     display: flex;
     width: 42rem;
     height: auto;
-    // // border: 1px dashed rgba(0, 0, 0, 0.150);
     border-top: 1px solid rgba(0, 0, 0, 0.275);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.275);
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.275);
     border-radius: 2px;
     flex-shrink: 2;
     background-color: #fffbf2de;
@@ -18,6 +17,11 @@ table {
         text-align: center;
         vertical-align: middle;
     }
+
+    thead>tr>h2 {
+        font-weight: 600;
+        border-bottom: 1px solid #0001;
+      }
 }
 
 .columns {
@@ -38,8 +42,4 @@ table {
     width: 100%;
     margin: auto;
     padding: 4px 8px;
-    // border: 1px dotted gray;
-    // border-radius: 4px;
-    // background-color: rgb(252, 255, 250);
-
 }
