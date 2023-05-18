@@ -11,6 +11,8 @@ import { FermentsComponent } from './ferments/ferments.component';
 import { BreadComponentsService } from './services/bread-components.service';
 import { MainDoughComponent } from './main-dough/main-dough.component';
 import { UseLocalStorageService } from './services/use-local-storage.service';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { UseLocalStorageService } from './services/use-local-storage.service';
     CalcFormComponent,
     TotalIngredientsComponent,
     FermentsComponent,
-    MainDoughComponent
+    MainDoughComponent,
+    SidenavComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -21,5 +21,4 @@ export class UseLocalStorageService {
 
     return JSON.parse(recipe);
   }
-
 }
