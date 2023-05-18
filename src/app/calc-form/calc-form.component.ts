@@ -13,21 +13,20 @@ export class CalcFormComponent {
   model = this.breadComponents.getRecipeFormula();
 
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     this.model = this.breadComponents.getRecipeFormula();
   }
   
-  updateFormula() {
+  updateFormula(): void {
     this.model = this.breadComponents.getRecipeFormula();
   }
 
-  saveToLocalStorage() {
+  saveToLocalStorage(): void {
     this.breadComponents.saveToLocalStorage();
   }
 
-  loadFromLocalStorage() {
+  loadFromLocalStorage(): void {
     this.breadComponents.loadFromLocalStorage();
     this.updateFormula();
   }
-
 }

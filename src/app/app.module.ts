@@ -13,6 +13,7 @@ import { MainDoughComponent } from './main-dough/main-dough.component';
 import { UseLocalStorageService } from './services/use-local-storage.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AboutComponent } from './about/about.component';
+import { BodyComponent } from './body/body.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     FermentsComponent,
     MainDoughComponent,
     SidenavComponent,
-    AboutComponent
+    AboutComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,

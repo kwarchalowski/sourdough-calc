@@ -28,4 +28,12 @@ export class SidenavComponent {
     this.collapsed = false;
     this.toggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
   }
+
+  openSidenav(event: Event): void {
+    event.stopPropagation();
+    this.collapsed = false;
+    this.toggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+    
+  }
+
 }

@@ -1,6 +1,6 @@
 .sidenav {
-    background: rgb(243, 241, 232);
-    transition: all .5s ease;
+    background: rgb(221, 221, 221);
+    transition: all .2s ease;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -13,9 +13,10 @@
     .logo-container {
         display: flex;
         align-items: center;
-        padding: 0.938rem 0.938rem 0 0.938rem;
+        padding: 3rem 0.938rem 3rem 0.938rem;
         width: 100%;
-
+        border-bottom: 1px solid #d8d8d8;
+        background-color: rgb(246, 246, 246);
 
         .logo {
             background: #fff;
@@ -27,8 +28,7 @@
             font-size: 16px;
             font-weight: 900;
             cursor: pointer;
-            border: none;
-            
+            border: 1px solid #0002;
         }
 
         .logo-text {
@@ -41,8 +41,8 @@
         .btn-close {
             margin-left: auto;
             cursor: pointer;
-            width: 2rem;
-            height: 2rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: 50%;
             background-color: transparent;
             border: none;
@@ -57,7 +57,7 @@
 }
 
 .sidenav-collapsed {
-    width: 22.5rem;
+    width: 22rem;
 }
 
 .sidenav-nav {
@@ -77,17 +77,18 @@
         .sidenav-nav-link {
             display: flex;
             align-items: center;
-            height: 3rem;
-            color: #412a2a;
+            height: 4rem;
+            color: #1b1b1b;
             text-decoration: none;
             border-radius: 0.625rem;
-            transition: all .3s ease;
+            font-weight: 400;
+            transition: all .1s ease;
 
             .sidenav-link-icon {
                 font-size: 22px;
                 width: 2rem;
                 min-width: 2rem;
-                margin: 0 0.5rem;
+                margin: 24px 0.5rem;
                 text-align: center;
             }
 
@@ -100,7 +101,17 @@
     .sidenav-nav-item:hover {
         .sidenav-nav-link {
             background-color: #fff;
-            color: black;
+            color: rgb(27, 27, 27);
+            font-weight: 700;
         }
+    }
+}
+
+.active {
+    background-color: #f7f7f7;
+
+    .sidenav-link-icon,
+    .sidenav-link-text {
+        color: #000;
     }
 }

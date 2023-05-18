@@ -1,2 +1,5 @@
 <app-sidenav (toggleSideNav)="toggleSideNav($event)"></app-sidenav>
-<app-calc-form></app-calc-form>
+<app-body>
+    [collapsed]="isSideNavCollapsed"
+    [screenWidth]="screenWidth"
+</app-body>
