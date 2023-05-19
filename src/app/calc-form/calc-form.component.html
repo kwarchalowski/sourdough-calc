@@ -1,4 +1,4 @@
-<form id="recipeForm">
+<form id="recipeForm" class="noselect">
     <table id="recipeTable" class="table">
         <thead>
             <tr>
@@ -31,7 +31,7 @@
         </tbody>
     </table>
 </form>
-<div class="columns">
+<div class="columns noselect">
     <div class="column">
         <app-total-ingredients [doughWeight]="model.doughWeight" [levain]="model.levain"
             [scale]="model.scale"></app-total-ingredients>

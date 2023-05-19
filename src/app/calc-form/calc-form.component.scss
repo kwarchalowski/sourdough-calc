@@ -27,14 +27,12 @@ table {
 .columns {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: left;
     gap: 1px;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
 }
-
-.column {}
 
 .save-load {
     display: flex;
