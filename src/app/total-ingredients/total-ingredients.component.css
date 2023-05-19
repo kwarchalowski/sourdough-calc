@@ -7,7 +7,7 @@ form {
   border: 1px dashed rgba(0, 0, 0, 0.15);
   border-top: 1px solid rgba(0, 0, 0, 0.275);
   border-bottom: 1px solid rgba(0, 0, 0, 0.275);
-  border-radius: 2px;
+  border-radius: 0px 0px 0px 4px;
   -ms-flex-negative: 2;
       flex-shrink: 2;
   background-color: #fffbf2de;

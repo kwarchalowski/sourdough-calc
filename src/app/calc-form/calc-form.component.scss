@@ -1,10 +1,12 @@
 table {
     display: flex;
+    // width: calc(126rem + 2px);
     width: 42rem;
     height: auto;
     border-top: 1px solid rgba(0, 0, 0, 0.275);
     // border-bottom: 1px solid rgba(0, 0, 0, 0.275);
-    border-radius: 2px;
+    border-bottom: none;
+    border-radius: 4px 4px 0px 0px;
     flex-shrink: 2;
     background-color: #fffbf2de;
 
@@ -41,3 +43,4 @@ table {
     margin: auto;
     padding: 4px 8px;
 }
+
