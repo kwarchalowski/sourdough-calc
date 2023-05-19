@@ -3,9 +3,9 @@
         <button class="logo" (click)="toggleCollapse()">
             <i class="fa-solid" [ngClass]="collapsed ? 'fa-bars-staggered': 'fa-bars'"></i>
         </button>
-        <div class="logo-text" *ngIf="collapsed">SourNote</div>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed">SourNote</div>
         <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
-            <i class="fa-solid fa-xmark close-icon"></i>
+            <i class="fa-solid fa-xmark close-icon" @rotate></i>
         </button>
     </div>
     <ul class="sidenav-nav">
@@ -15,7 +15,7 @@
                 [routerLinkActiveOptions]="{exact: true}"
             >
                 <i class="sidenav-link-icon" [class]="data.icon"></i>
-                <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
             </a>
         </li>
     </ul>

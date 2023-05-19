@@ -1,6 +1,6 @@
 .sidenav {
     background: rgb(221, 221, 221);
-    transition: all .2s ease;
+    transition: all .25s ease;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -82,7 +82,7 @@
             text-decoration: none;
             border-radius: 0.625rem;
             font-weight: 400;
-            transition: all .1s ease;
+            transition: all .25s ease;
 
             .sidenav-link-icon {
                 font-size: 20px;
