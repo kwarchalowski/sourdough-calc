@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
 interface SideNavToggle {
   screenWidth: number;
   collapsed: boolean;
@@ -29,5 +28,6 @@ export class AppComponent {
 
   useLanguage(language: string): void {
     this.translate.use(language);
-}
+  }
+  
 }
