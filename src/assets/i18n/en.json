@@ -1,0 +1,8 @@
+{
+    "calc-form": {
+        "heading": "Sourdough bread recipe",
+        "doughWeight": "Dough weight (g)",
+        "levain": "Levain (%)",
+        "loaves": "Number of loaves"
+    }
+}
