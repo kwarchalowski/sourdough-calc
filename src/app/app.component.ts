@@ -11,10 +11,7 @@ interface SideNavToggle {
 })
 export class AppComponent {
 
-  constructor(private translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
-  }
+
 
   title = 'sourdough-calc';
 
@@ -26,8 +23,5 @@ export class AppComponent {
     this.isSideNavCollapsed = data.collapsed;
   }
 
-  useLanguage(language: string): void {
-    this.translate.use(language);
-  }
   
 }

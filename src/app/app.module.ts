@@ -19,6 +19,7 @@ import { BodyComponent } from './body/body.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MainDoughComponent,
     SidenavComponent,
     AboutComponent,
-    BodyComponent
+    BodyComponent,
+    LangSwitcherComponent
   ],
   imports: [
     BrowserModule,
