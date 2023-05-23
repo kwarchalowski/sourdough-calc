@@ -1,14 +1,24 @@
 table {
     display: flex;
     // width: calc(126rem + 2px);
+    // align-items: center;
     width: 42rem;
     height: auto;
+
     border-top: 1px solid rgba(0, 0, 0, 0.275);
     // border-bottom: 1px solid rgba(0, 0, 0, 0.275);
     border-bottom: none;
     border-radius: 4px 4px 0px 0px;
-    flex-shrink: 2;
+    // flex-grow: 2;
     background-color: #fffbf2de;
+
+    // thead {
+    //     width: 50%;
+    // }
+    
+    // tbody {
+        // width: 50%;
+    // }
 
     .middle-right {
         text-align: right;

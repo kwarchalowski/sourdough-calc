@@ -1,8 +1,53 @@
 {
-    "calc-form": {
-        "heading": "Ogólny przepis",
-        "doughWeight": "Waga chleba (g)",
-        "levain": "Zakwas (%)",
-        "loaves": "Ilość bochenków"
-    }
+	"calc-form": {
+		"doughWeight": "Waga chleba (g)",
+		"ferments": {
+			"flour": "Mąka",
+			"heading": "Zakwasy",
+			"levainHeading": "Zakwas",
+			"ripeStarter": "Dojrzały starter",
+			"ripeStarterHeading": "Dojrzały starter",
+			"strongWhiteFlour": "Mąka bazowa",
+			"water": "Woda"
+		},
+		"heading": "Ogólny przepis",
+		"headings": {
+			"bakersPercent": "Procenty piekarskie (%)",
+			"weightGrams": "Waga (g)"
+		},
+		"levain": "Zakwas (%)",
+		"loaves": "Ilość bochenków",
+		"localStorage": {
+			"loadBtnLabel": "Wczytaj z LocalStorage",
+			"saveBtnLabel": "Zapisz do LocalStorage"
+		},
+		"md": {
+			"flourType2": "Mąka typu 2",
+			"flourType3": "Mąka typu 3",
+			"heading": "Gotowe ciasto",
+			"inclusion1": "Dodatek 1",
+			"inclusion2": "Dodatek 2",
+			"inclusion3": "Dodatek 3",
+			"levain": "Zakwas",
+			"salt": "Sól",
+			"strongWhiteFlour": "Mąka bazowa",
+			"water": "Woda"
+		},
+		"ti": {
+			"flourType2": "Mąka typu 2.",
+			"flourType3": "Mąka typu 3.",
+			"heading": "Składniki bazowe",
+			"inclusion1": "Dodatek 1",
+			"inclusion2": "Dodatek 2",
+			"inclusion3": "Dodatek 3",
+			"salt": "Sól",
+			"strongWhiteFlour": "Mąka bazowa",
+			"water": "Woda (hydracja)"
+		}
+	},
+	"content": {
+		"about": {
+			"welcome": "<p>Witaj w Kalkulatorze Chleba Sourdough - prostym narzędziu, które ma na celu ułatwić proces pieczenia chleba na zakwasie.</p>\n<p>Niezależnie od tego, czy jesteś doświadczonym piekarzem czy dopiero rozpoczynasz swoją przygodę z chlebem na zakwasie, nasz kalkulator jest tu po to, aby pomóc ci osiągnąć zawsze pyszne rezultaty.</p>\n<p>Pieczenie chleba na zakwasie to zarówno sztuka, jak i nauka, wymagająca dokładnego zachowania proporcji składników, czasu fermentacji i poziomu nawilżenia ciasta. Nasz Kalkulator Chleba Sourdough ma na celu wyeliminowanie zagadki z tych obliczeń i dostarczenie ci precyzyjnych pomiarów dotyczących żądanej wagi chleba, procentu zakwasu, rodzajów mąki, nawilżenia ciasta i wiele więcej.</p>\n<p>Oto jak to działa:</p>\n<ul>\n<li>Dostosowanie: Zacznij od wyboru żądanej wagi chleba, procentu zakwasu, rodzajów mąki i nawilżenia ciasta. Nasz kalkulator oferuje szeroki wybór opcji, które dostosują się do twoich preferencji i potrzeb żywieniowych, pozwalając ci na tworzenie idealnego bochenka za każdym razem.</li>\n<li>Automatyczne Aktualizacje: Po dokonaniu wyborów, Kalkulator Chleba Sourdough natychmiast zaktualizuje wszystkie obliczone wagi składników. Będą to ilości mąki, wody, zakwasu, soli i innych dodatków wymaganych dla twojego wybranego przepisu. Ta informacja w czasie rzeczywistym zapewnia dokładność i pomaga efektywnie zaplanować proces pieczenia.</li>\n<li>Zapisywanie i Ładowanie: Rozumiemy, że każdy piekarz ma swoje ulubione przepisy. Dzięki naszemu kalkulatorowi możesz łatwo zapisać i wczytać swoje preferowane przepisy na chleb na zakwasie. Ta funkcja pozwala ci na powrót i odtworzenie udanych wypieków bez konieczności ręcznego zapamiętywania czy obliczania proporcji składników za każdym razem.</li>\n</ul>\n<p>Nasz celem jest dostarczenie ci niezawodnego narzędzia, które uprości twoje doświadczenie w pieczeniu i umożliwi eksperymentowanie z różnymi przepisami i wariantami. Kalkulator Chleba Sourdough oszczędza ci czas, zwiększa precyzję i pozwala skupić się na kreatywnych aspektach wypieku chleba.</p>\n<p>Należy jednak zauważyć, że chociaż nasz kalkulator dostarcza dokładnych pomiarów, pieczenie to nadal dynamiczny proces, zależny od czynników takich jak temperatura otoczenia, jakość mąki i osobiste preferencje. Dlatego zawsze warto monitorować i dostosowywać ciasto podczas etapów fermentacji i wyrośnięcia, aby osiągnąć pożądaną teksturę i smak.</p>\n<p>Ciesz się procesem tworzenia domowego chleba na zakwasie i pozwól, aby Kalkulator Chleba Sourdough był twoim zaufanym towarzyszem w tej podróży. Smacznego pieczenia!</p>"
+		}
+	}
 }
