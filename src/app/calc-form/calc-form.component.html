@@ -43,8 +43,8 @@
     <div class="column" id="app-main-dough">
         <app-main-dough></app-main-dough>
         <div class="save-load">
-            <button class="btn btn-success" (click)="saveToLocalStorage()">Save to LocalStorage</button>
-            <button class="btn btn-info" (click)="loadFromLocalStorage()">Load from LocalStorage</button>
+            <button class="btn btn-success" (click)="saveToLocalStorage()">{{ 'calc-form.localStorage.saveBtnLabel' | translate }}</button>
+            <button class="btn btn-info" (click)="loadFromLocalStorage()">{{ 'calc-form.localStorage.loadBtnLabel' | translate }}</button>
         </div>
     </div>
 </div>

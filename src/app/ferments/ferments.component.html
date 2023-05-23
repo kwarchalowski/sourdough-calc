@@ -1,18 +1,18 @@
 <form>
     <table id="fermentsTable" class="table table-sd table-hover">
         <thead>
-            <h3>Ferments</h3>
+            <h3>{{ 'calc-form.ferments.heading' | translate }}</h3>
             <tr>
                 <th scope="col" class="col-md-3 text-left">
-                    <h4>Ripe starter</h4>
+                    <h4>{{ 'calc-form.ferments.ripeStarterHeading' | translate }}</h4>
                 </th>
-                <th scope="col" class="col-md-3 text-center">Baker's (%)</th>
-                <th scope="col" class="col-md-3 text-center">Weight (g)</th>
+                <th scope="col" class="col-md-3 text-center">{{ 'calc-form.headings.bakersPercent' | translate }}</th>
+                <th scope="col" class="col-md-3 text-center">{{ 'calc-form.headings.weightGrams' | translate }}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row" class="middle-right">Flour</th>
+                <th scope="row" class="middle-right">{{ 'calc-form.ferments.flour' | translate }}</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="flourBakers" required readonly
                         [(ngModel)]="model.ripeStarter.flourBakers" name="flourBakers" #flourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
@@ -20,7 +20,7 @@
                 <td class="middle-center">{{ fermentsWeights.ripeStarter.flourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
-                <th scope="row" class="middle-right">Water</th>
+                <th scope="row" class="middle-right">{{ 'calc-form.ferments.water' | translate }}</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="waterBakers" required
                         [(ngModel)]="model.ripeStarter.waterBakers" name="waterBakers" #waterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
@@ -36,15 +36,15 @@
         <thead>
             <tr>
                 <th scope="col" class="col-md-3 text-left">
-                    <h4>Levain</h4>
+                    <h4>{{ 'calc-form.ferments.levainHeading' | translate }}</h4>
                 </th>
-                <th scope="col" class="col-md-3 text-center">Baker's (%)</th>
-                <th scope="col" class="col-md-2 text-center">Weight (g)</th>
+                <th scope="col" class="col-md-3 text-center">{{ 'calc-form.headings.bakersPercent' | translate }}</th>
+                <th scope="col" class="col-md-2 text-center">{{ 'calc-form.headings.weightGrams' | translate }}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row" class="middle-right">Strong white flour</th>
+                <th scope="row" class="middle-right">{{ 'calc-form.ferments.strongWhiteFlour' | translate }}</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="strongWhiteFlourBakers" required
                         readonly [(ngModel)]="model.levain.strongWhiteFlourBakers" name="strongWhiteFlourBakers"
@@ -53,7 +53,7 @@
                 <td class="middle-center">{{ fermentsWeights.levain.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
-                <th scope="row" class="middle-right">Water</th>
+                <th scope="row" class="middle-right">{{ 'calc-form.ferments.water' | translate }}</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="levainWaterBakers" required
                         [(ngModel)]="model.levain.waterBakers" name="levainWaterBakers" #levainWaterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
@@ -61,7 +61,7 @@
                 <td class="middle-center">{{ fermentsWeights.levain.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
-                <th scope="row" class="middle-right">Ripe starter</th>
+                <th scope="row" class="middle-right">{{ 'calc-form.ferments.ripeStarter' | translate }}</th>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" id="ripeStarterBakers" required
                         [(ngModel)]="model.levain.ripeStarterBakers" name="ripeStarterBakers"
