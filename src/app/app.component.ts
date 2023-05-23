@@ -11,8 +11,6 @@ interface SideNavToggle {
 })
 export class AppComponent {
 
-
-
   title = 'sourdough-calc';
 
   isSideNavCollapsed = false;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -8,9 +8,22 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LangSwitcherComponent {
 
+  screenWidth = 0;
+  hidden = false;
+
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
     translate.use('en');
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth <= 160) {
+      this.hidden = true;
+    } else {
+      this.hidden = false;
+    }
   }
   
   useLanguage(language: string): void {

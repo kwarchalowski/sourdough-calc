@@ -1,4 +1,4 @@
-<div class="lang-switcher">
+<div class="lang-switcher" [ngClass]="hidden? 'hide' : 'unhide'">
     <button (click)="useLanguage('en')"><span class="fi fi-gb"></span></button>
     <button (click)="useLanguage('pl')"><span class="fi fi-pl"></span></button>
 </div>
