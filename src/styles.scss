@@ -27,10 +27,17 @@ body {
 }
 
 form {
+    margin-left: 12rem;
     width: 50rem;
-
+    
     th {
         min-width: 12rem;
+    }
+
+    @media print {
+        margin-left: 0;
+        vertical-align: middle;
+        align-items: center;
     }
 }
 
@@ -82,3 +89,10 @@ input[type=number] {
                                     supported by Chrome, Edge, Opera and Firefox */
 }
 //* ====================================
+
+//* DO-NOT-PRINT class
+@media print {
+    .noprint {
+       visibility: hidden;
+    }
+ }
