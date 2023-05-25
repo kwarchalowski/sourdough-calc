@@ -90,9 +90,25 @@ input[type=number] {
 }
 //* ====================================
 
-//* DO-NOT-PRINT class
-@media print {
-    .noprint {
-       visibility: hidden;
+
+ @media print {
+
+    * { margin: 0 !important; padding: 0 !important; }
+    
+    html, body, content {
+        /*changing width to 100% causes huge overflow and wrap*/
+        height:100%; 
+        overflow: hidden;
+        background: #FFF; 
+        font-size: 9.5pt;
+      }
+
+    li { 
+        margin: 0 0 10px 20px !important;
     }
- }
+
+    .noprint {
+        visibility: hidden;
+    }
+
+}

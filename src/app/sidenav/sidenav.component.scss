@@ -121,8 +121,12 @@
     bottom: 2rem;
     width: 80%;
 
+    &:hover {
+        background-color: inherit;
+        font-weight: bold;
+    }
 
     span {
-        padding-left: 6px;
+        padding-left: 2rem;
     }
 }
