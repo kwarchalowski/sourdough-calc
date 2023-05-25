@@ -14,16 +14,20 @@
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.ferments.flour' | translate }}</th>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" id="flourBakers" required readonly
-                        [(ngModel)]="model.ripeStarter.flourBakers" name="flourBakers" #flourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    <div class="input-container">
+                        <input type="number" min="0" max="100" class="form-control" id="flourBakers" required readonly
+                            [(ngModel)]="model.ripeStarter.flourBakers" name="flourBakers" #flourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.ripeStarter.flourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.ferments.water' | translate }}</th>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" id="waterBakers" required
-                        [(ngModel)]="model.ripeStarter.waterBakers" name="waterBakers" #waterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    <div class="input-container">
+                        <input type="number" min="0" max="100" class="form-control" id="waterBakers" required
+                            [(ngModel)]="model.ripeStarter.waterBakers" name="waterBakers" #waterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.ripeStarter.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
@@ -46,26 +50,32 @@
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.ferments.strongWhiteFlour' | translate }}</th>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" id="strongWhiteFlourBakers" required
-                        readonly [(ngModel)]="model.levain.strongWhiteFlourBakers" name="strongWhiteFlourBakers"
-                        #strongWhiteFlourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    <div class="input-container">
+                        <input type="number" min="0" max="100" class="form-control" id="strongWhiteFlourBakers" required
+                            readonly [(ngModel)]="model.levain.strongWhiteFlourBakers" name="strongWhiteFlourBakers"
+                            #strongWhiteFlourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.levain.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.ferments.water' | translate }}</th>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" id="levainWaterBakers" required
-                        [(ngModel)]="model.levain.waterBakers" name="levainWaterBakers" #levainWaterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    <div class="input-container">
+                        <input type="number" min="0" max="100" class="form-control" id="levainWaterBakers" required
+                            [(ngModel)]="model.levain.waterBakers" name="levainWaterBakers" #levainWaterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.levain.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.ferments.ripeStarter' | translate }}</th>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" id="ripeStarterBakers" required
-                        [(ngModel)]="model.levain.ripeStarterBakers" name="ripeStarterBakers"
-                        #ripeStarterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    <div class="input-container">
+                        <input type="number" min="0" max="100" class="form-control" id="ripeStarterBakers" required
+                            [(ngModel)]="model.levain.ripeStarterBakers" name="ripeStarterBakers"
+                            #ripeStarterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                    </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.levain.ripeStarterWeight | number: '1.0-1' }} (g)</td>
             </tr>

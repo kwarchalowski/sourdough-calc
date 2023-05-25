@@ -17,6 +17,9 @@ body {
         // background-color: red;
         width: 4rem;
     }
+
+
+
 }
 
 .middle-right {
@@ -34,11 +37,11 @@ form {
         min-width: 12rem;
     }
 
-    @media print {
-        margin-left: 0;
-        vertical-align: middle;
-        align-items: center;
-    }
+    // @media print {
+    //     margin-left: 0;
+    //     vertical-align: middle;
+    //     align-items: center;
+    // }
 }
 
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
@@ -47,6 +50,8 @@ form {
 	vertical-align: middle;
 	border-top: 1px solid #dddddd6b;
 }
+
+
 
 
 //* remove number input arrows =========
@@ -101,14 +106,26 @@ input[type=number] {
         overflow: hidden;
         background: #FFF; 
         font-size: 9.5pt;
-      }
+    }
 
     li { 
         margin: 0 0 10px 20px !important;
     }
 
+
+    form>table>tbody>tr>td {
+        text-align: center !important;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .noprint {
         visibility: hidden;
     }
+
 
 }
