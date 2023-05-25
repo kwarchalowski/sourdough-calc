@@ -2,13 +2,13 @@
     <table id="recipeTable" class="table">
         <thead>
             <tr>
-                <h2 class="middle-center">{{ 'calc-form.heading' | translate }}</h2>
+                <h2>{{ 'calc-form.heading' | translate }}</h2>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.doughWeight' | translate }}</th>
-                <td>
+                <td class="middle-center-td">
                     <input type="number" min="100" max="2000" class="form-control" id="doughWeight" required
                         [(ngModel)]="model.doughWeight" name="doughWeight" #doughWeight="ngModel"
                         (ngModelChange)="updateFormula()" placeholder="hello"/>
@@ -16,14 +16,14 @@
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.levain' | translate }}</th>
-                <td>
+                <td class="middle-center-td">
                     <input type="number" min="0" max="100" class="form-control" id="levain" required
                         [(ngModel)]="model.levain" name="levain" #levain="ngModel" />
                 </td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.loaves' | translate }}</th>
-                <td>
+                <td class="middle-center-td">
                     <input type="number" min="0" max="30" class="form-control" id="scale" required
                         [(ngModel)]="model.scale" name="scale" #scale="ngModel" />
                 </td>

@@ -1,44 +1,27 @@
+form>table>tbody>tr>td {
+    vertical-align: middle;
+    text-align: center;
+    // background-color: #0AAA;
+}
+
+table {
+    border: 1px dotted black;
+    border-top: 2px dotted #cccb;
+    border-bottom: 2px dotted #cccb;
+}
+
 form {
-    // height: 100%;
-    // left: 0;
-    display: flex;
-    width: 42rem;
-    // border: 1px dashed rgba(0, 0, 0, 0.150);
-    border-top: 1px solid rgba(0, 0, 0, 0.275);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.275);
-    border-radius: 0px 4px 4px 0px;
-    flex-shrink: 2;
-    background-color: #fffbf2de;
+    // position: absolute;
+    top: 32px;
+    left: 60rem;
+}
 
-    .middle-right {
-        text-align: right;
-        vertical-align: middle;
-    }
-
-    .middle-center {
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    button {
-        padding: 16px;
-        font-size: large;
-        font-weight: bold;
-    }
-
-    td {
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    h3 {
-        // font-size: 24px;
-        width: 100%;
-        padding-bottom: 0px;
-        margin: 0;
-        margin-left: 16px;
-        font-weight: 600;
-        border-bottom: 1px solid #0001;
-      }
-
+thead {
+    background-color: rgb(247, 247, 247);
+    border-top: 2px solid black;
+}
+tbody>tr.total {
+    background-color: rgb(247, 247, 247);
+    border-top: 2px solid black;
+    font-weight: bold;
 }

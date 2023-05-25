@@ -3,79 +3,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 body {
-    background-color: rgb(44, 44, 44);
-
+    background-color: rgb(255, 255, 255);
     color: rgb(39, 39, 39);
     font-family: 'Nunito Sans', sans-serif;
-
-    form:not(#recipeForm) {
-        height: 600px;
-    }
-
 }
 
+.middle-center {
+    vertical-align: middle;
+    text-align: center;
+    // background-color: #AA0A;
 
-#recipeTable,
-#weightsTable,
-#fermentsTable {
-
-    // margin: auto;
-    margin-top: 12px;
-    margin-bottom: 0px;
-
-    tr {
-
-        .form-control:focus {
-            -webkit-box-shadow: inset 0px 0px 8px 2px rgba(233, 185, 89, 0.25);
-            -moz-box-shadow: inset 0px 0px 8px 2px rgba(233, 185, 89, 0.25);
-            box-shadow: inset 0px 0px 8px 2px rgba(233, 185, 89, 0.25);
-            border: 1px solid rgba(233, 185, 89, 0.8);
-        }
-
-        td.bold {
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            margin: auto;
-            display: block;
-            text-align: center;
-
-            &[type='number']:not(:read-only) {
-                background-color: #fffdf9;
-            }
-
-            &[type='number']:read-only {
-                pointer-events: none;
-                background: repeating-linear-gradient(45deg,
-                        #f8faff41,
-                        #f8faff41 6px,
-                        #e6e6e663 6px,
-                        #e6e6e663 12px);
-            }
-        }
-
-        text-align: center;
-        align-items: center;
+    &-td {
+        // background-color: red;
+        width: 4rem;
     }
 }
 
-#recipeTable {
-    tbody {
-        width: 100%;
-    }
-    td {
-        width: 10rem;
+.middle-right {
+    width: 24rem;
+    vertical-align: middle;
+    text-align: right;
+    // background-color: #A0AA;
+}
+
+form {
+    width: 50rem;
+
+    th {
+        min-width: 12rem;
     }
 }
 
-.table-hover>tbody>tr.no-hover:hover {
-    background-color: inherit;
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+	padding: 2px;
+	line-height: 1.42857143;
+	vertical-align: middle;
+	border-top: 1px solid #dddddd6b;
 }
 
 
-//* remove number input arrows
+//* remove number input arrows =========
 //* chrome, safari, edge, opera
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -86,9 +53,19 @@ input::-webkit-inner-spin-button {
 //* firefox
 input[type=number] {
     -moz-appearance: textfield;
+    width: 100px;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    height: 2rem;
+    font-size: smaller;
+    outline: none;
+    border: none;
 }
+//* ====================================
 
-//* noselect
+
+//* noselect ===========================
 .noselect {
     -webkit-touch-callout: none;
     /* iOS Safari */
@@ -104,3 +81,4 @@ input[type=number] {
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
 }
+//* ====================================

@@ -1,15 +1,15 @@
 <form>
     <table id="fermentsTable" class="table table-sd table-hover">
         <thead>
-            <th scope="col" class="col-md-3 text-left">
+            <th scope="col" class="text-left">
                 
             </th>
             <tr>
-                <th scope="col" class="col-md-3 text-left">
+                <th scope="col" class="text-left">
                     <h3>{{ 'calc-form.md.heading' | translate }}</h3>
                 </th>
-                <th scope="col" class="col-md-3 text-center">{{ 'calc-form.headings.bakersPercent' | translate }}</th>
-                <th scope="col" class="col-md-2 text-center">{{ 'calc-form.headings.weightGrams' | translate }}</th>
+                <th scope="col" class="text-center">{{ 'calc-form.headings.bakersPercent' | translate }}</th>
+                <th scope="col" class="text-center">{{ 'calc-form.headings.weightGrams' | translate }}</th>
             </tr>
         </thead>
         <tbody>
@@ -18,65 +18,65 @@
                 <td>
                     {{model.strongWhiteFlourBakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.flourType2' | translate }}</th>
                 <td>
                     {{model.flourType2Bakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.flourType2Weight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.flourType2Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.flourType3' | translate }}</th>
                 <td>
                     {{model.flourType3Bakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.flourType3Weight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.flourType3Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.water' | translate }}</th>
                 <td>
                     {{model.waterBakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.waterWeight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.waterWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.salt' | translate }}</th>
                 <td>
                     {{model.saltBakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.saltWeight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.saltWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.levain' | translate }}</th>
                 <td>
                     {{model.levain}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.levainWeight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.levainWeight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.inclusion1' | translate }}</th>
                 <td>
                     {{model.inclusion1Bakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.inclusion1Weight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.inclusion1Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.inclusion2' | translate }}</th>
                 <td>
                     {{model.inclusion2Bakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.inclusion2Weight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.inclusion2Weight | number: '1.0-1' }} (g)</td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.md.inclusion3' | translate }}</th>
                 <td>
                     {{model.inclusion3Bakers}}%
                 </td>
-                <td class="middle-center">{{ mainDoughWeights.inclusion3Weight | number: '1.0-1' }} (g)</td>
+                <td>{{ mainDoughWeights.inclusion3Weight | number: '1.0-1' }} (g)</td>
             </tr>
-            <tr class="no-hover">
+            <tr class="no-hover total">
                 <th scope="row" class="middle-right"></th>
                 <td></td>
                 <td class="bold middle-center">{{ mainDoughWeights.totalWeight | number: '1.0-0' }} (g)</td>
