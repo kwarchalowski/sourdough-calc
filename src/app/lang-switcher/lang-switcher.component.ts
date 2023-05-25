@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { UseLocalStorageService } from '../services/use-local-storage.service';
 
 @Component({
   selector: 'app-lang-switcher',
@@ -12,9 +13,10 @@ export class LangSwitcherComponent {
   hidden = false;
 
   //TODO: save used language in localStorage and load it on start! 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private localStorage: UseLocalStorageService) {
     translate.setDefaultLang('en');
-    translate.use('en');
+    // translate.use('en');
+    this.loadLanguageFromLS();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -29,6 +31,18 @@ export class LangSwitcherComponent {
   
   useLanguage(language: string): void {
     this.translate.use(language);
+    localStorage.setItem('language-settings', language);
+  }
+
+  loadLanguageFromLS() {
+    const storedLanguage = this.localStorage.loadLanguageSettings();
+    if(storedLanguage !== null) {
+      this.translate.use(storedLanguage);
+      return
+    }
+
+    this.translate.use('en');
+    localStorage.setItem('language-settings', 'en');
   }
 
 }

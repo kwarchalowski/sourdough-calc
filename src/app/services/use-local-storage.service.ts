@@ -21,4 +21,14 @@ export class UseLocalStorageService {
 
     return JSON.parse(recipe);
   }
+
+  loadLanguageSettings(): string | null {
+    const language = localStorage.getItem('language-settings');
+
+    if(language === null) return null;
+
+    return language;
+  }
+
+
 }
