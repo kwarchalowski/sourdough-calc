@@ -55,6 +55,7 @@
 			"about": "O ooo ooo",
 			"calc": "Kalkulator",
 			"title": "SourCalc"
-		}
+		},
+		"print-btn-label": "Drukuj"
 	}
 }

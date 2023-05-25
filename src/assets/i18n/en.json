@@ -55,6 +55,7 @@
 			"about": "About",
 			"calc": "Calc",
 			"title": "SourCalc"
-		}
+		},
+		"print-btn-label": "Print"
 	}
 }
