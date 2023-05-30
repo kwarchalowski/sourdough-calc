@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sourdough-frd-testing": {
+      "hosting": {
+        "sourdough-calc": [
+          "sourdough-frd-testing"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sourdough-frd-testing"
+  }
+}

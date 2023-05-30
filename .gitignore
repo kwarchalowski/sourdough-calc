@@ -43,3 +43,7 @@ Thumbs.db
 
 # BabelEdit project file
 src/assets/i18n/babel-i18n.babel
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
