@@ -18,8 +18,10 @@ import { BodyComponent } from './body/body.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { LoadingInterceptor } from './loading.interceptor';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
     SidenavComponent,
     AboutComponent,
     BodyComponent,
-    LangSwitcherComponent
+    LangSwitcherComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
       }
     })
   ],
-  providers: [BreadComponentsService, UseLocalStorageService],
+  providers: [BreadComponentsService, UseLocalStorageService, {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 

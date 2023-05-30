@@ -12,7 +12,6 @@ export class LangSwitcherComponent {
   screenWidth = 0;
   hidden = false;
 
-  //TODO: save used language in localStorage and load it on start! 
   constructor(private translate: TranslateService, private localStorage: UseLocalStorageService) {
     translate.setDefaultLang('en');
     // translate.use('en');
