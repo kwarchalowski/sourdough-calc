@@ -1,6 +1,7 @@
 /* Language switcher */
 .lang-switcher {
     position: fixed;
+    z-index: 3;
     width: 88px;
     min-width: 88px;
     height: 40px;

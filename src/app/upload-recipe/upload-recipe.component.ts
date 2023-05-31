@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FrdService } from '../frd.service';
 
 @Component({
@@ -8,23 +8,34 @@ import { FrdService } from '../frd.service';
 })
 export class UploadRecipeComponent {
 
+  screenWidth = 0;
   isHidden = true;
   showUrl = false;
 
-  titlePlaceholder = 'Sourdough bread recipe';
+  titlePlaceholder = 'Title your recipe :)';
   recipeTitle = '';
 
   constructor (private frdService: FrdService) { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth <= 500) {
+      this.closeOverlay();
+    }
+  }
+
   addRecipeToDb() {
-    if(this.recipeTitle === '') this.recipeTitle = this.titlePlaceholder;
-    
+    if(this.recipeTitle === '') this.recipeTitle = "My bread recipe";
+
     this.frdService.addRecipeToDatabase(this.recipeTitle);
+    this.recipeTitle = '';
+    this.closeOverlay();
   }
 
   uploadRecipe(): void {
     this.isHidden = false;
-    console.log('Uploading recipe to database...');
+    // console.log('Uploading recipe to database...');
   }
 
 
