@@ -25,6 +25,8 @@ import { LoadingInterceptor } from './loading.interceptor';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { FrdService } from './frd.service';
+import { UploadRecipeComponent } from './upload-recipe/upload-recipe.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     AboutComponent,
     BodyComponent,
     LangSwitcherComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UploadRecipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase())
   ],
-  providers: [BreadComponentsService, UseLocalStorageService, {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
+  providers: [BreadComponentsService, UseLocalStorageService, FrdService, {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 

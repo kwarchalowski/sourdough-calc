@@ -115,7 +115,7 @@ export class BreadComponentsService {
   updateMainDoughInclusion1Weight(): void { this.mainDoughWeights.inclusion1Weight = this.getIngredientsWeights().inclusion1Weight; }
   updateMainDoughInclusion2Weight(): void { this.mainDoughWeights.inclusion2Weight = this.getIngredientsWeights().inclusion2Weight; }
   updateMainDoughInclusion3Weight(): void { this.mainDoughWeights.inclusion3Weight = this.getIngredientsWeights().inclusion3Weight; }
-  updateMainDoughTotalWeight(): void { this.mainDoughWeights.totalWeight = this.getMainDoughWeights().strongWhiteFlourWeight + this.getMainDoughWeights().flourType2Weight + this.getMainDoughWeights().flourType3Weight + this.getMainDoughWeights().waterWeight + this.getMainDoughWeights().saltWeight + this.getMainDoughWeights().levainWeight + this.getMainDoughWeights().inclusion1Weight + this.getMainDoughWeights().inclusion2Weight + this.getMainDoughWeights().inclusion3Weight; console.warn('mainDoughTotalWeight: ' + this.mainDoughWeights.totalWeight);}
+  updateMainDoughTotalWeight(): void { this.mainDoughWeights.totalWeight = this.getMainDoughWeights().strongWhiteFlourWeight + this.getMainDoughWeights().flourType2Weight + this.getMainDoughWeights().flourType3Weight + this.getMainDoughWeights().waterWeight + this.getMainDoughWeights().saltWeight + this.getMainDoughWeights().levainWeight + this.getMainDoughWeights().inclusion1Weight + this.getMainDoughWeights().inclusion2Weight + this.getMainDoughWeights().inclusion3Weight; }
   //? Ingredients
   updateIngredientsStrongWhiteFlourWeight(): void { this.ingredientsWeights.strongWhiteFlourWeight = this.calculateSingleIngredientWeight(this.getIngredients().strongWhiteFlourBakers); }
   updateIngredientsFlourType2Weight(): void { this.ingredientsWeights.flourType2Weight = this.calculateSingleIngredientWeight(this.getIngredients().flourType2Bakers); }
@@ -194,10 +194,21 @@ export class BreadComponentsService {
     this.updateIngredientsWeights();
   }
 
+  //* get recipe for rtdb
+  getRecipeIngredients(): RecipeIngredients {
+    const recipeIngredients: RecipeIngredients = {
+      recipeFormula: this.getRecipeFormula(),
+      ingredients: this.getIngredients(),
+      mainDough: this.getMainDough(),
+      ferments: this.getFerments()
+    }
+    return (recipeIngredients);
+  }
+
   //* LOCAL STORAGE
   saveToLocalStorage() {
     const recipeIngredients: RecipeIngredients = {
-      recipeFormula: this.getRecipeFormula(), 
+      recipeFormula: this.getRecipeFormula(),
       ingredients: this.getIngredients(),
       mainDough: this.getMainDough(),
       ferments: this.getFerments()

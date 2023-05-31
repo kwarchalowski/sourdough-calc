@@ -1,0 +1,26 @@
+<div id="overlay" *ngIf="!isHidden">
+    <div id="upload-container">
+        <div class="btn-close">
+            <i class="fa-regular fa-circle-xmark" (click)="closeOverlay()"></i>
+        </div>
+
+        <div id="form-container">
+            <div id="title-container">
+                <form>
+                    <label for="recipeTitle">Recipe title:</label>
+                    <input type="text" id="recipeTitle" required [placeholder]="titlePlaceholder" [(ngModel)]="recipeTitle" name="title"/>
+                </form>
+            </div>
+
+            <div id="recipe-url" *ngIf="showUrl">
+
+            </div>
+
+            <div id="buttons-container">
+                <button id="upload-button" class="btn btn-success" (click)="addRecipeToDb()">hello</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-success" (click)="uploadRecipe()">Upload recipe</button>

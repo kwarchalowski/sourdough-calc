@@ -9,5 +9,6 @@ export const environment = {
     authDomain: 'sourdough-frd-testing.firebaseapp.com',
     messagingSenderId: '865874495645',
     measurementId: 'G-RYPZM0DN23',
+    databaseURL: 'https://sourdough-frd-testing-default-rtdb.europe-west1.firebasedatabase.app'
   }
 };

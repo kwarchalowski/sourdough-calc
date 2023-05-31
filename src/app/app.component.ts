@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FrdService } from './frd.service';
 
 
 interface SideNavToggle {

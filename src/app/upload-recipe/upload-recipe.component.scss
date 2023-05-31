@@ -1,0 +1,128 @@
+#overlay {
+    position: fixed;
+    /* Sit on top of the page content */
+    display: block;
+    /* Hidden by default */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+
+
+
+    #upload-container {
+        position: relative;
+        display: flex;
+        width: 360px;
+        height: 600px;
+        top: calc(50% - 300px);
+        left: calc(50% - 180px);
+        border: 4px double white;
+        border-radius: 3%;
+        background-color: rgb(255, 255, 250);
+
+        .btn-close {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background-color: transparent;
+            z-index: inherit;
+            cursor: crosshair;
+
+            i {
+                font-size: 24px;
+                font-weight: 200;
+                color: rgb(179, 43, 43);
+                transition: all 0.3s;
+
+                &:hover {
+                    transform: scale(1.5);
+                    rotate: 1turn;
+                    color: rgb(32, 32, 32);
+                }
+
+            }
+        }
+    }
+
+    #form-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        justify-content: space-between;
+        flex-direction: column;
+
+        form {
+            all: initial;
+            width: 100%;
+
+            label {
+                padding-right: 10px;
+                width: 100%;
+                vertical-align: middle;
+            }
+
+            input {
+                width: calc(100% - 40px);
+                height: 36px;
+                font-size: 16px;
+                color: rgb(23, 20, 34);
+                border: 1px solid rgba(136, 136, 136, 0.4);
+                padding-left: 32px;
+                padding-right: 12px;
+                margin-left: 20px;
+                margin-right: 20px;
+
+                &:focus {
+                    box-shadow: none;
+
+                    &:not(:read-only) {
+                        outline: none;
+                        border: 1px dashed rgba(136, 136, 136, 0.4);
+                        box-shadow: 0 0 5px rgb(211, 211, 211);
+                    }
+                }
+
+            }
+        }
+
+        #title-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            position: relative;
+            top: 64px;
+            border-top: 1px solid #0000001c;
+            border-bottom: 1px solid #0000001c;
+            padding: 10px;
+            border-radius: 7%;
+        }
+
+        #buttons-container {
+            width: 100%;
+            height: 24px;
+
+            #upload-button {
+                position: absolute;
+                width: calc(100% + 12px);
+                height: 64px;
+                left: -6px;
+            }
+        }
+
+
+    }
+
+}
