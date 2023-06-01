@@ -23,4 +23,20 @@
     </div>
 </div>
 
+<div id="invalid-form-overlay" *ngIf="showInvalidFormOverlay">
+    <div id="error-container">
+        <div class="btn-close">
+            <i class="fa-regular fa-circle-xmark" (click)="closeOverlay()"></i>
+        </div>
+
+<div id="error-msg">
+    <p>There are errors in your recipe. blabllab</p>
+</div>
+<div id="buttons-container">
+    <button id="error-close-button" class="btn btn-warning" (click)="closeOverlay()">close</button>
+</div>
+        
+    </div>
+</div>
+
 <button class="btn btn-success" (click)="uploadRecipe()">Upload recipe</button>

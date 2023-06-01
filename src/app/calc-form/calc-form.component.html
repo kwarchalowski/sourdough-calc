@@ -13,7 +13,7 @@
                     <div class="input-container">
                         <input type="number" min="100" max="2000" class="form-control" id="doughWeight" required
                             [(ngModel)]="model.doughWeight" name="doughWeight" #doughWeight="ngModel"
-                            (ngModelChange)="updateFormula()" placeholder="hello"/>
+                            (ngModelChange)="updateFormula()"/>
                         <i  *ngIf="doughWeight.invalid && (doughWeight.dirty || doughWeight.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
                     </div>
                 </td>

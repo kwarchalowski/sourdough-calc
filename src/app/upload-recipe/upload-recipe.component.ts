@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { FrdService } from '../frd.service';
 
 @Component({
@@ -8,14 +8,18 @@ import { FrdService } from '../frd.service';
 })
 export class UploadRecipeComponent {
 
+  warningsCount = document.getElementsByClassName('validation-warning').length;
+
   screenWidth = 0;
   isHidden = true;
+  showInvalidFormOverlay = false;
   showUrl = false;
+  errors = 0;
 
-  titlePlaceholder = 'Title your recipe :)';
+  titlePlaceholder = `Title your recipe :)`;
   recipeTitle = '';
 
-  constructor (private frdService: FrdService) { }
+  constructor (private frdService: FrdService, private elementRef: ElementRef) { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -34,13 +38,22 @@ export class UploadRecipeComponent {
   }
 
   uploadRecipe(): void {
+
+    const warningsCount = document.getElementsByClassName('validation-warning').length;
+    this.errors = warningsCount;
+
+    if (warningsCount > 0) {
+      this.showInvalidFormOverlay = true;
+      return;
+    }
     this.isHidden = false;
-    // console.log('Uploading recipe to database...');
+  
   }
 
 
   closeOverlay(): void {
     this.isHidden = true;
+    this.showInvalidFormOverlay = false;
   }
 
 }
