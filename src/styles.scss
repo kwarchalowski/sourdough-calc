@@ -43,9 +43,61 @@ form {
 .table>thead>tr>td,
 .table>thead>tr>th {
     padding: 2px;
-    line-height: 1.42857143;
+    line-height: 2;
     vertical-align: middle;
     border-top: 1px solid #dddddd6b;
+
+    div.input-container {
+        // width: calc(100% + 14px);
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // width: 100%;
+        // position: absolute;
+
+        i {
+            width: 0;
+            height: 0;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	        // transform: scale(1);
+
+        }
+
+        .validation-warning {
+
+            display: block;
+            position: relative;
+            color: red;
+            left: 113px;
+            top: -24px;
+            // animation: pulse 2s infinite;
+
+
+            &:after {
+                // animation: none;
+            }
+
+            &:hover::after {
+                content: attr(error-tooltip);
+                position: absolute;
+                width: max-content;
+                max-width: 200px;
+                margin-left: 8px;
+                background: rgba(255, 224, 224, 0.69);
+                border: 1px solid #ff9b9b;
+                border-radius: 2px;
+                padding: 8px;
+                color: #aa0606;
+                font-size: smaller;
+                font-family: initial;
+                font-weight: initial;
+                // animation: none;
+
+            }
+
+        }
+
+    }
 }
 
 
@@ -84,7 +136,7 @@ input[type=number] {
         $stripe01: #dedede4f;
         $stripe02: #ebebeb4f;
         $stripe03: #c9c9c94f;
-        
+
         background-image: linear-gradient(135deg, $stripe01 22.73%, $stripe02 22.73%, $stripe02 45.45%, $stripe03 45.45%, $stripe03 50%, $stripe01 50%, $stripe01 72.73%, $stripe02 72.73%, $stripe02 95.45%, $stripe03 95.45%, $stripe03 100%);
         background-size: 11.00px 11.00px;
 
@@ -154,4 +206,23 @@ input[type=number] {
     }
 
 
+}
+
+//* Pulse animation keyframes
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		// box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	50% {
+		transform: scale(2);
+        // bottom: -6px;
+		// box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(1);
+		// box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }

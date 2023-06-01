@@ -9,23 +9,33 @@
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.doughWeight' | translate }}</th>
                 <td class="middle-center-td">
-                    <input type="number" min="100" max="2000" class="form-control" id="doughWeight" required
-                        [(ngModel)]="model.doughWeight" name="doughWeight" #doughWeight="ngModel"
-                        (ngModelChange)="updateFormula()" placeholder="hello"/>
+
+                    <div class="input-container">
+                        <input type="number" min="100" max="2000" class="form-control" id="doughWeight" required
+                            [(ngModel)]="model.doughWeight" name="doughWeight" #doughWeight="ngModel"
+                            (ngModelChange)="updateFormula()" placeholder="hello"/>
+                        <i  *ngIf="doughWeight.invalid && (doughWeight.dirty || doughWeight.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.levain' | translate }}</th>
                 <td class="middle-center-td">
-                    <input type="number" min="0" max="100" class="form-control" id="levain" required
-                        [(ngModel)]="model.levain" name="levain" #levain="ngModel" />
+                    <div class="input-container">
+                        <input type="number" min="0" max="100" class="form-control" id="levain" required
+                            [(ngModel)]="model.levain" name="levain" #levain="ngModel" />
+                            <i *ngIf="levain.invalid && (levain.dirty || levain.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="hola amiga"></i>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th scope="row" class="middle-right">{{ 'calc-form.loaves' | translate }}</th>
                 <td class="middle-center-td">
-                    <input type="number" min="0" max="30" class="form-control" id="scale" required
-                        [(ngModel)]="model.scale" name="scale" #scale="ngModel" />
+                    <div class="input-container">
+                        <input type="number" min="0" max="30" class="form-control" id="scale" required
+                            [(ngModel)]="model.scale" name="scale" #scale="ngModel" />
+                            <i *ngIf="scale.invalid && (scale.dirty || scale.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="that's very long very very very very long c'mon bro error msg very long yes yes yes error msg"></i>
+                    </div>
                 </td>
             </tr>
         </tbody>

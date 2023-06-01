@@ -17,6 +17,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="flourBakers" required readonly
                             [(ngModel)]="model.ripeStarter.flourBakers" name="flourBakers" #flourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                            <i  *ngIf="flourBakers.invalid && (flourBakers.dirty || flourBakers.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.ripeStarter.flourWeight | number: '1.0-1' }} (g)</td>
@@ -27,6 +28,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="waterBakers" required
                             [(ngModel)]="model.ripeStarter.waterBakers" name="waterBakers" #waterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                            <i  *ngIf="waterBakers.invalid && (waterBakers.dirty || waterBakers.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.ripeStarter.waterWeight | number: '1.0-1' }} (g)</td>
@@ -54,6 +56,7 @@
                         <input type="number" min="0" max="100" class="form-control" id="strongWhiteFlourBakers" required
                             readonly [(ngModel)]="model.levain.strongWhiteFlourBakers" name="strongWhiteFlourBakers"
                             #strongWhiteFlourBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                            <i  *ngIf="strongWhiteFlourBakers.invalid && (strongWhiteFlourBakers.dirty || strongWhiteFlourBakers.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.levain.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
@@ -64,6 +67,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="levainWaterBakers" required
                             [(ngModel)]="model.levain.waterBakers" name="levainWaterBakers" #levainWaterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                            <i  *ngIf="levainWaterBakers.invalid && (levainWaterBakers.dirty || levainWaterBakers.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.levain.waterWeight | number: '1.0-1' }} (g)</td>
@@ -75,6 +79,7 @@
                         <input type="number" min="0" max="100" class="form-control" id="ripeStarterBakers" required
                             [(ngModel)]="model.levain.ripeStarterBakers" name="ripeStarterBakers"
                             #ripeStarterBakers="ngModel"  (ngModelChange)="recalculateWeights()"/>
+                            <i  *ngIf="ripeStarterBakers.invalid && (ripeStarterBakers.dirty || ripeStarterBakers.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ fermentsWeights.levain.ripeStarterWeight | number: '1.0-1' }} (g)</td>
