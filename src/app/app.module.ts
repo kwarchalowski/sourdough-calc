@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FrdService } from './frd.service';
 import { UploadRecipeComponent } from './upload-recipe/upload-recipe.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { UploadRecipeComponent } from './upload-recipe/upload-recipe.component';
     LangSwitcherComponent,
     SpinnerComponent,
     UploadRecipeComponent,
+    AutofocusDirective,
   ],
   imports: [
     BrowserModule,
