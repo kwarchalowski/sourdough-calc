@@ -47,3 +47,7 @@ src/assets/i18n/babel-i18n.babel
 .firebase
 *-debug.log
 .runtimeconfig.json
+src/assets/i18n/translations.xlsx
+src/assets/i18n/babel.2.3.1.babel
+src/assets/i18n/babel-i18n-2.babel
+.gitignore

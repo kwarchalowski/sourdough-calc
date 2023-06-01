@@ -17,7 +17,7 @@
                         <input type="number" min="0" max="100" readonly class="form-control" id="strongWhiteFlour" required
                             [(ngModel)]="model.strongWhiteFlourBakers" name="strongWhiteFlour"
                             #strongWhiteFlour="ngModel"/>
-                            <i  *ngIf="strongWhiteFlour.invalid && (strongWhiteFlour.dirty || strongWhiteFlour.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="strongWhiteFlour.invalid && (strongWhiteFlour.dirty || strongWhiteFlour.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.strongWhiteFlour' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.strongWhiteFlourWeight | number: '1.0-1' }} (g)</td>
@@ -28,7 +28,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="flourType2" required
                             [(ngModel)]="model.flourType2Bakers" name="flourType2" #flourType2="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="flourType2.invalid && (flourType2.dirty || flourType2.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="flourType2.invalid && (flourType2.dirty || flourType2.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.flourType2' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.flourType2Weight | number: '1.0-1' }} (g)</td>
@@ -39,7 +39,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="flourType3" required
                             [(ngModel)]="model.flourType3Bakers" name="flourType3" #flourType3="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="flourType3.invalid && (flourType3.dirty || flourType3.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="flourType3.invalid && (flourType3.dirty || flourType3.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.flourType3' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.flourType3Weight | number: '1.0-1' }} (g)</td>
@@ -50,7 +50,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="water" required
                             [(ngModel)]="model.waterBakers" name="water" #water="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="water.invalid && (water.dirty || water.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="water.invalid && (water.dirty || water.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.water' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.waterWeight | number: '1.0-1' }} (g)</td>
@@ -61,7 +61,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="salt" required
                             [(ngModel)]="model.saltBakers" name="salt" #salt="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="salt.invalid && (salt.dirty || salt.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="salt.invalid && (salt.dirty || salt.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.salt' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.saltWeight | number: '1.0-1' }} (g)</td>
@@ -72,7 +72,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control input-sm" id="inclusion1" required
                             [(ngModel)]="model.inclusion1Bakers" name="inclusion1" #inclusion1="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="inclusion1.invalid && (inclusion1.dirty || inclusion1.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="inclusion1.invalid && (inclusion1.dirty || inclusion1.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.inclusion1' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.inclusion1Weight | number: '1.0-1' }} (g)</td>
@@ -83,7 +83,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="inclusion2" required
                             [(ngModel)]="model.inclusion2Bakers" name="inclusion2" #inclusion2="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="inclusion2.invalid && (inclusion2.dirty || inclusion2.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="inclusion2.invalid && (inclusion2.dirty || inclusion2.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.inclusion2' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.inclusion2Weight | number: '1.0-1' }} (g)</td>
@@ -94,7 +94,7 @@
                     <div class="input-container">
                         <input type="number" min="0" max="100" class="form-control" id="inclusion3" required
                             [(ngModel)]="model.inclusion3Bakers" name="inclusion3" #inclusion3="ngModel"  (ngModelChange)="recalculateWeights()"/>
-                            <i  *ngIf="inclusion3.invalid && (inclusion3.dirty || inclusion3.touched)" class="fa-solid fa-circle-exclamation validation-warning" error-tooltip="error msg"></i>
+                            <i  *ngIf="inclusion3.invalid && (inclusion3.dirty || inclusion3.touched)" class="fa-solid fa-circle-exclamation validation-warning" [attr.errorTooltip]="'form.errors.calc-form.ti.inclusion3' | translate"></i>
                     </div>
                 </td>
                 <td class="middle-center">{{ ingredientsWeights.inclusion3Weight | number: '1.0-1' }} (g)</td>

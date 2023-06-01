@@ -43,7 +43,7 @@ import { AutofocusDirective } from './autofocus.directive';
     LangSwitcherComponent,
     SpinnerComponent,
     UploadRecipeComponent,
-    AutofocusDirective,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
@@ -60,7 +60,7 @@ import { AutofocusDirective } from './autofocus.directive';
       }
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideDatabase(() => getDatabase())
+    provideDatabase(() => getDatabase()),
   ],
   providers: [BreadComponentsService, UseLocalStorageService, FrdService, {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
   bootstrap: [AppComponent]

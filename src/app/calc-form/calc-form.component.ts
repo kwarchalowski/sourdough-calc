@@ -1,4 +1,4 @@
-import { Component, SimpleChanges } from '@angular/core';
+import { Attribute, Component, SimpleChanges } from '@angular/core';
 import { BreadComponentsService } from '../services/bread-components.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { BreadComponentsService } from '../services/bread-components.service';
 })
 export class CalcFormComponent {
 
-  constructor(private breadComponents: BreadComponentsService) {}
+  
+
+  constructor(private breadComponents: BreadComponentsService) { }
 
   model = this.breadComponents.getRecipeFormula();
 

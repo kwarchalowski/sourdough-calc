@@ -36,6 +36,7 @@ form {
 
 }
 
+
 .table>tbody>tr>td,
 .table>tbody>tr>th,
 .table>tfoot>tr>td,
@@ -78,7 +79,9 @@ form {
             }
 
             &:hover::after {
-                content: attr(error-tooltip);
+                // content: attr(errorTooltip);
+                // content: var(--tooltip-string);
+                content: attr(errorTooltip);
                 position: absolute;
                 width: max-content;
                 max-width: 200px;
