@@ -28,6 +28,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FrdService } from './frd.service';
 import { UploadRecipeComponent } from './upload-recipe/upload-recipe.component';
 import { AutofocusDirective } from './autofocus.directive';
+import { RecipeViewerComponent } from './recipe-viewer/recipe-viewer.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AutofocusDirective } from './autofocus.directive';
     LangSwitcherComponent,
     SpinnerComponent,
     UploadRecipeComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    RecipeViewerComponent
   ],
   imports: [
     BrowserModule,

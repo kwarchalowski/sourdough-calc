@@ -6,6 +6,8 @@
 import { Injectable } from '@angular/core';
 import { Database, set, ref, update, child, getDatabase, onValue, DataSnapshot, get } from '@angular/fire/database';
 import { BreadComponentsService } from './services/bread-components.service';
+import { RecipeIngredients } from './recipe-ingredients';
+import { Observable, of } from 'rxjs';
 
 
 @Injectable({
@@ -70,4 +72,64 @@ export class FrdService {
     return generatedID;
   }
 
+
+  
+  getRecipe(id: string): Observable<RecipeIngredients> | void {
+
+    const dbRef = ref(getDatabase());
+    
+    get(child(dbRef, `recipes/${id}`)).then((snapshot: DataSnapshot) => {
+
+      //* ID duplicated
+      if (snapshot.exists()) {
+        const recipeFromRTDB: RecipeIngredients = snapshot.val().recipe;
+        console.log(JSON.stringify(recipeFromRTDB));
+        return recipeFromRTDB;
+      }
+
+      console.warn('oh oh');
+      return;
+
+    }).catch((error: Error) => {
+      console.error(error);
+      return;
+    })
+
+    
+
+    // const mockRecipe: Observable<RecipeIngredients> = of();
+
+    // return of();
+    
+    // return recipeFromRTDB;
+    // return JSON.parse(recipe);
+  }
+
+
+  // getRecipe(id: string): RecipeIngredients {
+  //   const dbRef = ref(getDatabase());
+    
+  //   get(child(dbRef, `recipes/${id}`)).then((snapshot: DataSnapshot) => {
+
+  //     //* ID duplicated
+  //     if (snapshot.exists()) {
+  //       const recipeFromRTDB: RecipeIngredients = snapshot.val().recipe;
+  //       console.log(JSON.stringify(recipeFromRTDB));
+  //       return recipeFromRTDB;
+  //     }
+
+  //     console.warn('oh oh');
+  //     return null;
+
+  //   }).catch((error: Error) => {
+  //     console.error(error);
+  //     return null;
+  //   })
+
+  //   // return null;
+
+  // }
+
 }
+
+
