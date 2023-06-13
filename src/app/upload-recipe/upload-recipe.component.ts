@@ -16,7 +16,7 @@ export class UploadRecipeComponent {
   showUrl = false;
   errors = 0;
 
-  titlePlaceholder = `Title your recipe :)`;
+  titlePlaceholder = "'form.upload.titlePlaceholderLabel' | translate";
   recipeTitle = '';
 
   constructor (private frdService: FrdService, private elementRef: ElementRef) { }
@@ -30,7 +30,7 @@ export class UploadRecipeComponent {
   }
 
   addRecipeToDb() {
-    if(this.recipeTitle === '') this.recipeTitle = "My bread recipe";
+    if(this.recipeTitle === '') this.recipeTitle = "'form.upload.defaultTitle' | translate";
 
     this.frdService.addRecipeToDatabase(this.recipeTitle);
     this.recipeTitle = '';

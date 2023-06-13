@@ -11,6 +11,7 @@ export class MainDoughComponent {
   constructor(private breadComponents: BreadComponentsService) { }
 
   model = this.breadComponents.getMainDough();
+  // recipeNotes = '';
   mainDoughWeights = this.breadComponents.getMainDoughWeights();
 
   ngOnInit() {

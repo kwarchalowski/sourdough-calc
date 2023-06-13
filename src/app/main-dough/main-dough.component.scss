@@ -18,8 +18,28 @@ thead {
     background-color: rgb(247, 247, 247);
     border-top: 2px solid black;
 }
+
 tbody>tr.total {
     background-color: rgb(247, 247, 247);
     border-top: 2px solid black;
     font-weight: bold;
+}
+
+#recipeNotes {
+
+
+    box-shadow: none;
+    background-color: #f2d86c21;
+    border: 1px solid rgba(238, 238, 238, 0.5);
+    width: 500px;
+    height: 210px;
+    max-width: 500px;
+    min-width: 500px;
+    padding: 16px 8px;
+
+    &:focus {
+        // border: 1px solid rgba(0, 47, 255, 0.26);
+        border: 1px dashed rgba(136, 136, 136, 0.4);
+    }
+
 }

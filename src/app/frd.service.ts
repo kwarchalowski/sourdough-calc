@@ -39,7 +39,9 @@ export class FrdService {
         ID: recipeID,
         timestamp: this.getTimestamp(),
         title: title,
-        recipe: this.breadComponentService.getRecipeIngredients()
+        recipe: this.breadComponentService.getRecipeIngredients(),
+        ingredientsWeights: this.breadComponentService.getIngredientsWeights(),
+        ingredientsTotalWeight: this.breadComponentService.getTotalIngredientsWeight(),
       }).then(() => {
         //TODO: switch alert with popup
         alert('Created recipe #' + recipeID);
@@ -74,62 +76,21 @@ export class FrdService {
 
 
   
-  getRecipe(id: string): Observable<RecipeIngredients> | void {
+  getRecipe(id: string): Observable<any> {
 
     const dbRef = ref(getDatabase());
-    
-    get(child(dbRef, `recipes/${id}`)).then((snapshot: DataSnapshot) => {
 
-      //* ID duplicated
-      if (snapshot.exists()) {
-        const recipeFromRTDB: RecipeIngredients = snapshot.val().recipe;
-        console.log(JSON.stringify(recipeFromRTDB));
-        return recipeFromRTDB;
-      }
+    return new Observable(subscriber => {
+      get(child(dbRef, `recipes/${id}`)).then((snapshot: DataSnapshot) => {
+        if (snapshot.exists()) {
+          const recipeFromRTDB: any = snapshot.val();
+          subscriber.next(recipeFromRTDB);
+          return
+        }
 
-      console.warn('oh oh');
-      return;
-
-    }).catch((error: Error) => {
-      console.error(error);
-      return;
+      }).catch((error: Error) => {
+        subscriber.error(error);
+      })
     })
-
-    
-
-    // const mockRecipe: Observable<RecipeIngredients> = of();
-
-    // return of();
-    
-    // return recipeFromRTDB;
-    // return JSON.parse(recipe);
   }
-
-
-  // getRecipe(id: string): RecipeIngredients {
-  //   const dbRef = ref(getDatabase());
-    
-  //   get(child(dbRef, `recipes/${id}`)).then((snapshot: DataSnapshot) => {
-
-  //     //* ID duplicated
-  //     if (snapshot.exists()) {
-  //       const recipeFromRTDB: RecipeIngredients = snapshot.val().recipe;
-  //       console.log(JSON.stringify(recipeFromRTDB));
-  //       return recipeFromRTDB;
-  //     }
-
-  //     console.warn('oh oh');
-  //     return null;
-
-  //   }).catch((error: Error) => {
-  //     console.error(error);
-  //     return null;
-  //   })
-
-  //   // return null;
-
-  // }
-
 }
-
-

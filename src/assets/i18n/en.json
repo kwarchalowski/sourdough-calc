@@ -74,6 +74,10 @@
 					"water": "Hydration (percentage of water) should be between 0-100%."
 				}
 			}
+		},
+		"upload": {
+			"defaultTitle": "My own bread recipe",
+			"titlePlaceholderLabel": "Recipe's title..."
 		}
 	},
 	"sidenav": {

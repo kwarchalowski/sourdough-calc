@@ -74,6 +74,10 @@
 					"water": "Hydracja (zawartość procentowa wody) powinna zawierać się w przedziale 0-100%."
 				}
 			}
+		},
+		"upload": {
+			"defaultTitle": "Mój przepis na chleb",
+			"titlePlaceholderLabel": "Nazwa przepisu..."
 		}
 	},
 	"sidenav": {
