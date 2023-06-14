@@ -9,6 +9,7 @@ import { RipeStarter } from '../ripe-starter';
 import { Levain } from '../levain';
 import { Ingredients } from '../ingredients';
 
+
 @Component({
   selector: 'app-recipe-viewer',
   templateUrl: './recipe-viewer.component.html',
@@ -18,12 +19,15 @@ export class RecipeViewerComponent implements OnInit {
 
   id: string | undefined;
   title = 'Default title~';
+  createdDate = Date.now();
   recipe: RecipeIngredients | undefined;
   recipeFormula: RecipeFormula = new RecipeFormula(0,0,0);
-  ingredientsWeights: any = {};
   mainDough: MainDough = new MainDough(0,0,0,0,0,0,0,0,0);
+  mainDoughWeights: any = {};
   ferments: Ferments = new Ferments(new RipeStarter(0,0), new Levain(0,0,0));
+  fermentsWeights: any = {levain: {}, ripeStarter: {}};
   ingredients: Ingredients = new Ingredients(0,0,0,0,0,0,0,0);
+  ingredientsWeights: any = {};
 
   constructor(
     private route: ActivatedRoute,  
@@ -40,9 +44,15 @@ export class RecipeViewerComponent implements OnInit {
       this.recipe = recipeRTDB.recipe;
       this.recipeFormula = recipeRTDB.recipe.recipeFormula;
       this.ingredients = recipeRTDB.recipe.ingredients;
-      this.ingredientsWeights = recipeRTDB.ingredientsWeights;
+      this.ferments = recipeRTDB.recipe.ferments;
+      this.fermentsWeights = recipeRTDB.weights.ferments;
+      this.ingredientsWeights = recipeRTDB.weights.ingredients;
+      this.mainDough = recipeRTDB.recipe.mainDough;
+      this.mainDoughWeights = recipeRTDB.weights.mainDough;
       this.title = recipeRTDB.title;
+      this.createdDate = recipeRTDB.timestamp;
       console.info(`Loaded recipe (${this.id}):`, this.recipe);
+      
     });
   }
 }

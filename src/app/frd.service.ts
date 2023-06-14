@@ -40,8 +40,11 @@ export class FrdService {
         timestamp: this.getTimestamp(),
         title: title,
         recipe: this.breadComponentService.getRecipeIngredients(),
-        ingredientsWeights: this.breadComponentService.getIngredientsWeights(),
-        ingredientsTotalWeight: this.breadComponentService.getTotalIngredientsWeight(),
+        weights: {
+          ingredients: this.breadComponentService.getIngredientsWeights(),
+          ferments: this.breadComponentService.getFermentsWeights(),
+          mainDough: this.breadComponentService.getMainDoughWeights()
+        }
       }).then(() => {
         //TODO: switch alert with popup
         alert('Created recipe #' + recipeID);

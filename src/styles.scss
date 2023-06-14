@@ -8,6 +8,10 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .middle-center {
     vertical-align: middle;
     text-align: center;
@@ -193,6 +197,9 @@ input[type=number] {
         margin: 0 0 10px 20px !important;
     }
 
+    form {
+        border: none !important;
+    }
 
     form>table>tbody>tr>td {
         text-align: center !important;
