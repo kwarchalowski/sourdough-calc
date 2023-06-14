@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'calc', redirectTo: '', pathMatch: 'full'},
   {path: 'recipe/:id', component: RecipeViewerComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: '404', pathMatch: 'full', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

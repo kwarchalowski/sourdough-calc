@@ -5,3 +5,13 @@ form {
     border-bottom: 1px dotted #80808047;
     background: #8c8c880a;
 }
+
+#recipeContainer {
+    .visible {
+        visibility: visible;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+}

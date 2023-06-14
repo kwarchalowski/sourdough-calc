@@ -53,7 +53,8 @@
 	"errors": {
 		"404": {
 			"errorMsg": "page not found",
-			"title": "404"
+			"title": "404",
+			"windowTitle": "404 - page not found"
 		}
 	},
 	"form": {

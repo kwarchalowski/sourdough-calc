@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FrdService } from '../frd.service';
 import { RecipeIngredients } from '../recipe-ingredients';
 import { RecipeFormula } from '../recipe-formula';
@@ -29,14 +29,17 @@ export class RecipeViewerComponent implements OnInit {
   fermentsWeights: any = {levain: {}, ripeStarter: {}};
   ingredients: Ingredients = new Ingredients(0,0,0,0,0,0,0,0);
   ingredientsWeights: any = {};
+  isVisible = false;
 
   constructor(
     private route: ActivatedRoute,  
     private frdService: FrdService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.isVisible = false;
     this.getRecipe();
   }
 
@@ -54,7 +57,15 @@ export class RecipeViewerComponent implements OnInit {
       this.title = recipeRTDB.title;
       this.createdDate = recipeRTDB.timestamp;
       console.info(`Loaded recipe (${this.id}):`, this.recipe);
-      
+      this.toggleRecipeContainer();
+    }, error => {
+      this.router.navigate(['**']);
+      console.info(error);
     });
   }
+
+  toggleRecipeContainer(): void {
+    this.isVisible != this.isVisible;
+  }
+
 }

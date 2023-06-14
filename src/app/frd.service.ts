@@ -48,7 +48,7 @@ export class FrdService {
         }
       }).then(() => {
         //TODO: switch alert with popup
-        
+
         //* that's how you route:
         // this.router.navigate([`/recipe/${recipeID}`]);
 
@@ -95,6 +95,8 @@ export class FrdService {
           subscriber.next(recipeFromRTDB);
           return
         }
+
+        subscriber.error("Recipe not found.");
 
       }).catch((error: Error) => {
         subscriber.error(error);

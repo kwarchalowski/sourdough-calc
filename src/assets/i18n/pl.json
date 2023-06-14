@@ -53,7 +53,8 @@
 	"errors": {
 		"404": {
 			"errorMsg": "o nie! strona nie istnieje",
-			"title": "404"
+			"title": "404",
+			"windowTitle": "404 - strony nie odnaleziono"
 		}
 	},
 	"form": {
