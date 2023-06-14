@@ -8,6 +8,7 @@ import { Ferments } from '../ferments';
 import { RipeStarter } from '../ripe-starter';
 import { Levain } from '../levain';
 import { Ingredients } from '../ingredients';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { Ingredients } from '../ingredients';
 export class RecipeViewerComponent implements OnInit {
 
   id: string | undefined;
-  title = 'Default title~';
+  title = this.translate.get('form.upload.defaultTitle');
   createdDate = Date.now();
   recipe: RecipeIngredients | undefined;
   recipeFormula: RecipeFormula = new RecipeFormula(0,0,0);
@@ -32,6 +33,7 @@ export class RecipeViewerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,  
     private frdService: FrdService,
+    public translate: TranslateService
   ) {}
 
   ngOnInit(): void {

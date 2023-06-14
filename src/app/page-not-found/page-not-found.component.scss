@@ -1,0 +1,34 @@
+.errorCard {
+    display: block;
+    // width: 300px;
+    height: auto;
+    margin: auto;
+    font-size: x-large;
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+
+    // background-image on pseudoelement
+    #notFound::before {
+        content: "";
+        width: 320px;
+        height: 320px;
+        background: no-repeat url("../../../src/assets/img/404-sad-toast.png");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        left: calc(50% - 160px);
+        margin-top: 69px;
+        filter: grayscale(0.5) saturate(1.5);
+        opacity: 0.3;
+    }
+
+    h1 {
+
+        font-weight: bold;
+    }
+
+    h2 {
+        font-weight: 200;
+    }
+
+}

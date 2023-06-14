@@ -29,6 +29,7 @@ import { FrdService } from './frd.service';
 import { UploadRecipeComponent } from './upload-recipe/upload-recipe.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { RecipeViewerComponent } from './recipe-viewer/recipe-viewer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { RecipeViewerComponent } from './recipe-viewer/recipe-viewer.component';
     SpinnerComponent,
     UploadRecipeComponent,
     AutofocusDirective,
-    RecipeViewerComponent
+    RecipeViewerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { Database, set, ref, update, child, getDatabase, onValue, DataSnapshot, 
 import { BreadComponentsService } from './services/bread-components.service';
 import { RecipeIngredients } from './recipe-ingredients';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ import { Observable, of } from 'rxjs';
 })
 export class FrdService {
 
-  constructor(private database: Database, private breadComponentService: BreadComponentsService) { }
+  constructor(private database: Database, private breadComponentService: BreadComponentsService, private router: Router) { }
 
 
   addRecipeToDatabase(title: string) {
@@ -47,6 +48,10 @@ export class FrdService {
         }
       }).then(() => {
         //TODO: switch alert with popup
+        
+        //* that's how you route:
+        // this.router.navigate([`/recipe/${recipeID}`]);
+
         alert('Created recipe #' + recipeID);
       });
       return;
