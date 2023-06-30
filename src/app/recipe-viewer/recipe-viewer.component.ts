@@ -9,6 +9,7 @@ import { RipeStarter } from '../ripe-starter';
 import { Levain } from '../levain';
 import { Ingredients } from '../ingredients';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -35,7 +36,8 @@ export class RecipeViewerComponent implements OnInit {
     private route: ActivatedRoute,  
     private frdService: FrdService,
     public translate: TranslateService,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -57,12 +59,23 @@ export class RecipeViewerComponent implements OnInit {
       this.title = recipeRTDB.title;
       this.createdDate = recipeRTDB.timestamp;
       console.info(`Loaded recipe (${this.id}):`, this.recipe);
-      this.toggleRecipeContainer();
+      this.titleService.setTitle(`${this.title} | SourCalc`);
+      this.showRecipeContainer();
     }, error => {
+      this.hideRecipeContainer();
       this.router.navigate(['**']);
       console.info(error);
     });
   }
+
+  showRecipeContainer(): void {
+    this.isVisible = true;
+  }
+  
+  hideRecipeContainer(): void {
+    this.isVisible = false;
+  }
+  
 
   toggleRecipeContainer(): void {
     this.isVisible != this.isVisible;

@@ -50,9 +50,11 @@ export class FrdService {
         //TODO: switch alert with popup
 
         //* that's how you route:
-        // this.router.navigate([`/recipe/${recipeID}`]);
+        this.router.navigate([`/recipe/${recipeID}`]);
+      //TODO: add 'created recipe blablabla url:' popup after successfull load // <_ nope, let's do imgur tyle
 
-        alert('Created recipe #' + recipeID);
+
+        // alert('Created recipe #' + recipeID);
       });
       return;
     }).catch((error: Error) => {
@@ -96,6 +98,7 @@ export class FrdService {
           return
         }
 
+        //TODO: remember about that
         subscriber.error("Recipe not found.");
 
       }).catch((error: Error) => {
