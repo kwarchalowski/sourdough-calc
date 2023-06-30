@@ -10,6 +10,7 @@ import { Levain } from '../levain';
 import { Ingredients } from '../ingredients';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+// import { Location } from '@angular/common';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class RecipeViewerComponent implements OnInit {
   ingredients: Ingredients = new Ingredients(0,0,0,0,0,0,0,0);
   ingredientsWeights: any = {};
   isVisible = false;
+  hyperlink = '';
 
   constructor(
     private route: ActivatedRoute,  
@@ -58,6 +60,7 @@ export class RecipeViewerComponent implements OnInit {
       this.mainDoughWeights = recipeRTDB.weights.mainDough;
       this.title = recipeRTDB.title;
       this.createdDate = recipeRTDB.timestamp;
+      this.hyperlink = window.location.href;
       console.info(`Loaded recipe (${this.id}):`, this.recipe);
       this.titleService.setTitle(`${this.title} | SourCalc`);
       this.showRecipeContainer();
