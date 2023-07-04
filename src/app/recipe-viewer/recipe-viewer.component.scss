@@ -15,3 +15,48 @@ form {
         visibility: hidden;
     }
 }
+
+#recipeID {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    color: rgb(28, 75, 102);
+}
+
+#recipeLink {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+    margin-left: 8px;
+    color: rgb(28, 75, 102);
+    font-size: small;
+}
+
+#recipeTitle {
+    color: rgb(60, 28, 102);
+}
+
+#recipeDate {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(76, 102, 28);
+}
+
+#uploadSuccess {
+    $barHeight: 100px;
+
+    width: 100%;
+    height: $barHeight;
+    line-height: $barHeight; //centering text with line-height
+	margin: auto;
+	position: fixed;
+	top: calc(50% - ($barHeight/2));
+	left: 0;
+	background-color: rgba(0, 128, 0, 0.2);
+	text-align: center;
+	font-size: 36px;
+	font-weight: 600;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background: linear-gradient(120deg, rgba(69, 234, 35, 0.08), rgba(108, 225, 98, 0.75), 70%, rgba(110, 230, 56, 0.25));
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(5px);
+}
+

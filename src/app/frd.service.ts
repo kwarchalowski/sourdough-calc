@@ -50,7 +50,7 @@ export class FrdService {
         //TODO: switch alert with popup
 
         //* that's how you route:
-        this.router.navigate([`/recipe/${recipeID}`]);
+        this.router.navigate([`/recipe/${recipeID}`], {state: {uploaded: true}});
       //TODO: add 'created recipe blablabla url:' popup after successfull load // <_ nope, let's do imgur tyle
 
 

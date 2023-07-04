@@ -24,25 +24,27 @@ export class RecipeViewerComponent implements OnInit {
   title = this.translate.get('form.upload.defaultTitle');
   createdDate = Date.now();
   recipe: RecipeIngredients | undefined;
-  recipeFormula: RecipeFormula = new RecipeFormula(0,0,0);
-  mainDough: MainDough = new MainDough(0,0,0,0,0,0,0,0,0);
+  recipeFormula: RecipeFormula = new RecipeFormula(0, 0, 0);
+  mainDough: MainDough = new MainDough(0, 0, 0, 0, 0, 0, 0, 0, 0);
   mainDoughWeights: any = {};
-  ferments: Ferments = new Ferments(new RipeStarter(0,0), new Levain(0,0,0));
-  fermentsWeights: any = {levain: {}, ripeStarter: {}};
-  ingredients: Ingredients = new Ingredients(0,0,0,0,0,0,0,0);
+  ferments: Ferments = new Ferments(new RipeStarter(0, 0), new Levain(0, 0, 0));
+  fermentsWeights: any = { levain: {}, ripeStarter: {} };
+  ingredients: Ingredients = new Ingredients(0, 0, 0, 0, 0, 0, 0, 0);
   ingredientsWeights: any = {};
   isVisible = false;
   hyperlink = '';
+  showUploadPopup = false;
 
   constructor(
-    private route: ActivatedRoute,  
+    private route: ActivatedRoute,
     private frdService: FrdService,
     public translate: TranslateService,
     private router: Router,
     private titleService: Title
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.showUploadPopup = this.router.lastSuccessfulNavigation?.extras.state?.['uploaded'];
     this.isVisible = false;
     this.getRecipe();
   }
@@ -64,8 +66,12 @@ export class RecipeViewerComponent implements OnInit {
       console.info(`Loaded recipe (${this.id}):`, this.recipe);
       this.titleService.setTitle(`${this.title} | SourCalc`);
       this.showRecipeContainer();
+      if(this.showUploadPopup) this.showUploadedSuccess();
+      
+
     }, error => {
       this.hideRecipeContainer();
+      if(this.showUploadPopup) this.showUploadedError();
       this.router.navigate(['**']);
       console.info(error);
     });
@@ -74,14 +80,27 @@ export class RecipeViewerComponent implements OnInit {
   showRecipeContainer(): void {
     this.isVisible = true;
   }
-  
+
   hideRecipeContainer(): void {
     this.isVisible = false;
   }
-  
 
   toggleRecipeContainer(): void {
     this.isVisible != this.isVisible;
   }
+
+
+  showUploadedSuccess(): void {
+    setTimeout(() => {
+      this.showUploadPopup = false; //we don't need it anymore
+      console.log(this.showUploadPopup);
+    }, 2000);
+    return
+  }
+
+  showUploadedError(): void {
+    return
+  }
+
 
 }
