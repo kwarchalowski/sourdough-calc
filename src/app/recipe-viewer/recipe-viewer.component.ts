@@ -91,8 +91,9 @@ export class RecipeViewerComponent implements OnInit {
 
 
   showUploadedSuccess(): void {
+    
     setTimeout(() => {
-      this.showUploadPopup = false; //we don't need it anymore
+      // this.showUploadPopup = false; //we don't need it anymore
       console.log(this.showUploadPopup);
     }, 2000);
     return
