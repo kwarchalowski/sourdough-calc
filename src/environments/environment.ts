@@ -12,6 +12,11 @@ export const environment = {
     databaseURL: 'https://sourdough-frd-testing-default-rtdb.europe-west1.firebasedatabase.app'
   },
   recaptcha: {
-    siteKey: '6Le-HPgmAAAAAM0BBGgpUxCRkhj1UdXyFNQ9zzGu',
+    v2: {
+      siteKey: '6LfZavgmAAAAACSEcLsSNXVsIGrKJoainrKpNFML'
+    },
+    v3: {
+      siteKey: '6Le-HPgmAAAAAM0BBGgpUxCRkhj1UdXyFNQ9zzGu'
+    }
   }
 };

@@ -33,6 +33,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 // import { RecaptchaComponent } from './recaptcha/recaptcha.component';
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -69,8 +70,14 @@ import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
     RecaptchaV3Module,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
-  providers: [BreadComponentsService, UseLocalStorageService, FrdService, { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey}, { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
+  providers: [BreadComponentsService, UseLocalStorageService, FrdService,
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.v3.siteKey},
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    { provide: RECAPTCHA_SETTINGS, useValue: { siteKey: environment.recaptcha.v2.siteKey} as RecaptchaSettings}
+  ],
   bootstrap: [AppComponent]
 })
 

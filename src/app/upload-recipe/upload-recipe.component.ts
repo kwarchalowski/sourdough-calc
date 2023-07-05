@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 import { FrdService } from '../frd.service';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { NgForm } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-upload-recipe',
@@ -18,25 +19,29 @@ export class UploadRecipeComponent {
   showUrl = false;
   errors = 0;
   btnActive = false;
-
-  titlePlaceholder = "'form.upload.titlePlaceholderLabel' | translate";
+  titlePlaceholder = '';
   recipeTitle = '';
+  token: string | undefined;
 
-  constructor (private frdService: FrdService, private elementRef: ElementRef, private recaptchaV3Service: ReCaptchaV3Service) { }
+
+  constructor(private frdService: FrdService, private elementRef: ElementRef, private recaptchaV3Service: ReCaptchaV3Service, private translate: TranslateService) {
+    this.token = undefined;
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.screenWidth = window.innerWidth;
-    if(this.screenWidth <= 500) {
+    if (this.screenWidth <= 500) {
       this.closeOverlay();
     }
   }
 
   addRecipeToDb() {
-    if(this.recipeTitle === '') this.recipeTitle = "'form.upload.defaultTitle' | translate";
+    if (this.recipeTitle === '' || this.recipeTitle === '\'form.upload.titlePlaceholderLabel\' | translate') {
+      this.translate.get('form.upload.defaultTitle').subscribe(res => this.recipeTitle = res);
+    }
 
     this.frdService.addRecipeToDatabase(this.recipeTitle);
-    this.recipeTitle = '';
     this.closeOverlay();
   }
 
@@ -48,11 +53,8 @@ export class UploadRecipeComponent {
       return;
     }
 
-    this.recaptchaV3Service.execute('uploadRecipe')
-    .subscribe((token: string) => {
-      console.debug(`Token [${token}] generated`);
-      this.btnActive = true;
-    });
+    console.debug(`Token [${this.token}] generated`);
+    this.btnActive = true; //* v3 control?
   }
 
   uploadRecipe(): void {
@@ -65,7 +67,7 @@ export class UploadRecipeComponent {
       return;
     }
     this.isHidden = false;
-  
+
   }
 
 

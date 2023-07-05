@@ -8,7 +8,7 @@
             <div id="title-container">
                 <form>
                     <!-- <label for="recipeTitle">Recipe title:</label> -->
-                    <input type="text" id="recipeTitle" required [placeholder]="titlePlaceholder" [(ngModel)]="recipeTitle" name="title" appAutofocus />
+                    <input type="text" id="recipeTitle" required [placeholder]="'form.upload.titlePlaceholderLabel' | translate" [(ngModel)]="recipeTitle" name="title" appAutofocus />
                 </form>
             </div>
 
@@ -16,8 +16,12 @@
 
             </div>
 
+            <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
             <div id="buttons-container">
-                <button id="upload-button" [disabled]="!btnActive" class="btn btn-success" (click)="addRecipeToDb()">hello</button>
+                <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                    <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                </div>
+                <button id="upload-button" [disabled]="token === undefined" class="btn btn-success" (click)="addRecipeToDb()">hello</button>
             </div>
         </div>
     </div>
@@ -39,6 +43,10 @@
     </div>
 </div>
 
-<form  #form="ngForm">
-    <button class="btn btn-success" (click)="uploadRecipe(); send(form)">Upload recipe</button>
-</form>
+<form #form="ngForm">
+    <div class="row">
+      <div class="col-sm-12 mb-2">
+        <button class="btn btn-success" (click)="uploadRecipe()">Upload recipe</button>
+      </div>
+    </div>
+  </form>
