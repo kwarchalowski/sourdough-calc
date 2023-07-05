@@ -10,6 +10,7 @@ import { Levain } from '../levain';
 import { Ingredients } from '../ingredients';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { LoaderService } from '../loader.service';
 // import { Location } from '@angular/common';
 
 
@@ -40,10 +41,12 @@ export class RecipeViewerComponent implements OnInit {
     private frdService: FrdService,
     public translate: TranslateService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private loader: LoaderService
   ) { }
 
   ngOnInit(): void {
+    this.loader.setLoading(true);
     this.showUploadPopup = this.router.lastSuccessfulNavigation?.extras.state?.['uploaded'];
     this.isVisible = false;
     this.getRecipe();
@@ -67,17 +70,19 @@ export class RecipeViewerComponent implements OnInit {
       this.titleService.setTitle(`${this.title} | SourCalc`);
       this.showRecipeContainer();
       if(this.showUploadPopup) this.showUploadedSuccess();
-      
-
+      return
     }, error => {
       this.hideRecipeContainer();
       if(this.showUploadPopup) this.showUploadedError();
       this.router.navigate(['**']);
       console.info(error);
+      return
     });
+    
   }
 
   showRecipeContainer(): void {
+    this.loader.setLoading(false);
     this.isVisible = true;
   }
 
@@ -91,15 +96,14 @@ export class RecipeViewerComponent implements OnInit {
 
 
   showUploadedSuccess(): void {
-    
     setTimeout(() => {
       this.showUploadPopup = false; //we don't need it anymore
-      console.log(this.showUploadPopup);
-    }, 2000);
+    }, 3600);
     return
   }
 
   showUploadedError(): void {
+    this.loader.setLoading(false);
     return
   }
 

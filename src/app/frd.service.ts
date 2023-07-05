@@ -9,6 +9,7 @@ import { BreadComponentsService } from './services/bread-components.service';
 import { RecipeIngredients } from './recipe-ingredients';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { LoaderService } from './loader.service';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class FrdService {
 
-  constructor(private database: Database, private breadComponentService: BreadComponentsService, private router: Router) { }
+  constructor(private database: Database, private breadComponentService: BreadComponentsService, private router: Router, private loader: LoaderService) { }
 
 
   addRecipeToDatabase(title: string) {
@@ -51,6 +52,8 @@ export class FrdService {
 
         //* that's how you route:
         this.router.navigate([`/recipe/${recipeID}`], {state: {uploaded: true}});
+        this.loader.setLoading(false);
+
       //TODO: add 'created recipe blablabla url:' popup after successfull load // <_ nope, let's do imgur tyle
 
 

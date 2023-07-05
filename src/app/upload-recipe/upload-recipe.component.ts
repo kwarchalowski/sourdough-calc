@@ -3,6 +3,7 @@ import { FrdService } from '../frd.service';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-upload-recipe',
@@ -22,9 +23,10 @@ export class UploadRecipeComponent {
   titlePlaceholder = '';
   recipeTitle = '';
   token: string | undefined;
+  canShowError = false;
 
 
-  constructor(private frdService: FrdService, private elementRef: ElementRef, private recaptchaV3Service: ReCaptchaV3Service, private translate: TranslateService) {
+  constructor(private frdService: FrdService, private elementRef: ElementRef, private recaptchaV3Service: ReCaptchaV3Service, private translate: TranslateService, private loader: LoaderService) {
     this.token = undefined;
   }
 
@@ -41,20 +43,37 @@ export class UploadRecipeComponent {
       this.translate.get('form.upload.defaultTitle').subscribe(res => this.recipeTitle = res);
     }
 
+    this.loader.setLoading(true);
     this.frdService.addRecipeToDatabase(this.recipeTitle);
     this.closeOverlay();
   }
 
   send(form: NgForm): void {
+    this.loader.setLoading(true);
+    this.btnActive = false;
+
     if (form.invalid) {
       for (const control of Object.keys(form.controls)) {
         form.controls[control].markAsTouched();
+        this.loader.setLoading(false);
+
       }
       return;
     }
 
-    console.debug(`Token [${this.token}] generated`);
-    this.btnActive = true; //* v3 control?
+    this.recaptchaV3Service.execute('uploadRecipe')
+    .subscribe((token: string) => {
+      console.debug(`Token [${token}] generated`);
+      this.canShowError = false;
+      this.token = token;
+      this.loader.setLoading(false);
+      this.btnActive = true;
+      
+      if(token === undefined) this.canShowError = true; 
+      return;
+
+    });
+
   }
 
   uploadRecipe(): void {
@@ -74,6 +93,13 @@ export class UploadRecipeComponent {
   closeOverlay(): void {
     this.isHidden = true;
     this.showInvalidFormOverlay = false;
+  }
+
+
+  //* close with 'esc'
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) { 
+    if(event.key === "Escape") this.closeOverlay();
   }
 
 }

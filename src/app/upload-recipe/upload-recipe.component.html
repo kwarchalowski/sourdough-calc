@@ -7,8 +7,8 @@
         <div id="form-container">
             <div id="title-container">
                 <form>
-                    <!-- <label for="recipeTitle">Recipe title:</label> -->
-                    <input type="text" id="recipeTitle" required [placeholder]="'form.upload.titlePlaceholderLabel' | translate" [(ngModel)]="recipeTitle" name="title" appAutofocus />
+                    <input *ngIf="!canShowError" type="text" id="recipeTitle" required tabindex="1" [placeholder]="'form.upload.titlePlaceholderLabel' | translate" [(ngModel)]="recipeTitle" name="title" appAutofocus />
+                    <p *ngIf="token === undefined && canShowError" id="errorMsg">Something went wrong with the token. Close popup and try again.</p>
                 </form>
             </div>
 
@@ -16,11 +16,7 @@
 
             </div>
 
-            <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
             <div id="buttons-container">
-                <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
-                    <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
-                </div>
                 <button id="upload-button" [disabled]="token === undefined" class="btn btn-success" (click)="addRecipeToDb()">hello</button>
             </div>
         </div>
@@ -46,7 +42,7 @@
 <form #form="ngForm">
     <div class="row">
       <div class="col-sm-12 mb-2">
-        <button class="btn btn-success" (click)="uploadRecipe()">Upload recipe</button>
+        <button class="btn btn-success" (click)="uploadRecipe(); send(form);">Upload recipe</button>
       </div>
     </div>
   </form>

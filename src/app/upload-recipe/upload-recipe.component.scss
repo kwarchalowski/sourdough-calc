@@ -24,11 +24,11 @@
 
     #upload-container,
     #error-container {
-        position: relative;
+        position: absolute;
         display: flex;
         width: 600px;
-        height: 275px;
-        // top: calc(50% - 300px);
+        height: 188px;
+        top: calc(50% - 94px);
         // left: calc(50% - 180px);
         border: 3px double #487900;
         border-radius: 5px;
@@ -95,7 +95,15 @@
         flex-direction: column;
 
         re-captcha {
-            margin-top: 32px;
+            margin-top: 64px;
+        }
+
+        #errorMsg {
+            color: red;
+            font-size: larger;
+            font-weight: 500;
+            padding-left: 8px;
+            padding-right: 8px;
         }
 
         form {
@@ -166,7 +174,7 @@
                 border-radius: 0 0 3px 3px;
                 border: 3px double #487900;
                 border-top: none;
-
+                margin-top: 25px;
             }
         }
 
