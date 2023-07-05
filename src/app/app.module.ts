@@ -22,14 +22,17 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoadingInterceptor } from './loading.interceptor';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { FrdService } from './frd.service';
 import { UploadRecipeComponent } from './upload-recipe/upload-recipe.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { RecipeViewerComponent } from './recipe-viewer/recipe-viewer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+// import { RecaptchaComponent } from './recaptcha/recaptcha.component';
 
 
 @NgModule({
@@ -47,7 +50,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UploadRecipeComponent,
     AutofocusDirective,
     RecipeViewerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +68,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
+    RecaptchaV3Module,
   ],
-  providers: [BreadComponentsService, UseLocalStorageService, FrdService, {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
+  providers: [BreadComponentsService, UseLocalStorageService, FrdService, { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey}, { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 

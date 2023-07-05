@@ -17,7 +17,7 @@
             </div>
 
             <div id="buttons-container">
-                <button id="upload-button" class="btn btn-success" (click)="addRecipeToDb()">hello</button>
+                <button id="upload-button" [disabled]="!btnActive" class="btn btn-success" (click)="addRecipeToDb()">hello</button>
             </div>
         </div>
     </div>
@@ -39,4 +39,6 @@
     </div>
 </div>
 
-<button class="btn btn-success" (click)="uploadRecipe()">Upload recipe</button>
+<form  #form="ngForm">
+    <button class="btn btn-success" (click)="uploadRecipe(); send(form)">Upload recipe</button>
+</form>

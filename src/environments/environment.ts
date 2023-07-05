@@ -10,5 +10,8 @@ export const environment = {
     messagingSenderId: '865874495645',
     measurementId: 'G-RYPZM0DN23',
     databaseURL: 'https://sourdough-frd-testing-default-rtdb.europe-west1.firebasedatabase.app'
+  },
+  recaptcha: {
+    siteKey: '6Le-HPgmAAAAAM0BBGgpUxCRkhj1UdXyFNQ9zzGu',
   }
 };
