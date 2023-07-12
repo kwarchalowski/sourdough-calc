@@ -1,3 +1,11 @@
+<form id="uploadButtonForm" #form="ngForm">
+    <div class="row">
+      <div class="col-sm-12 mb-2">
+        <button id="uploadButton" (click)="uploadRecipe(); send(form);"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+  </form>
+
 <div id="overlay" *ngIf="!isHidden">
     <div id="upload-container">
         <div class="btn-close">
@@ -38,11 +46,3 @@
         
     </div>
 </div>
-
-<form #form="ngForm">
-    <div class="row">
-      <div class="col-sm-12 mb-2">
-        <button class="btn btn-success" (click)="uploadRecipe(); send(form);">Upload recipe</button>
-      </div>
-    </div>
-  </form>

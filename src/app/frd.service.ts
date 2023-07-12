@@ -4,9 +4,8 @@
 //*********************************************/
 
 import { Injectable } from '@angular/core';
-import { Database, set, ref, update, child, getDatabase, onValue, DataSnapshot, get } from '@angular/fire/database';
+import { Database, set, ref, child, getDatabase, DataSnapshot, get } from '@angular/fire/database';
 import { BreadComponentsService } from './services/bread-components.service';
-import { RecipeIngredients } from './recipe-ingredients';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { LoaderService } from './loader.service';
@@ -48,16 +47,9 @@ export class FrdService {
           mainDough: this.breadComponentService.getMainDoughWeights()
         }
       }).then(() => {
-        //TODO: switch alert with popup
-
-        //* that's how you route:
+        //* after upload
         this.router.navigate([`/recipe/${recipeID}`], {state: {uploaded: true}});
         this.loader.setLoading(false);
-
-      //TODO: add 'created recipe blablabla url:' popup after successfull load // <_ nope, let's do imgur tyle
-
-
-        // alert('Created recipe #' + recipeID);
       });
       return;
     }).catch((error: Error) => {
@@ -71,16 +63,8 @@ export class FrdService {
   }
   
 
-  counter = 0; //!
+  counter = 0;
   private generateRecipeID(): string {
-    
-    //TODO: REMOVE
-    //!REMEMBER! just for duplicates testing --
-    this.counter++;
-    if(this.counter % 3 == 0) return "ug3to0";
-    //!----------------------------------------
-
-
     const firstIDPart: number = (Math.random() * 46656) | 0;
     const secondIDPart: number = (Math.random() * 46656) | 0;
     const generatedID: string = ("000" + firstIDPart.toString(36)).slice(-3) + ("000" + secondIDPart.toString(36)).slice(-3);
